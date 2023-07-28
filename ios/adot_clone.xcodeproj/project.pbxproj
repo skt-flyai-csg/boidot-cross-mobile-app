@@ -12,8 +12,13 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		188C5DB8C8FE44D199BF836E /* NanumSquareNeo-cBd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5358BE7483674C0BBA29CD0A /* NanumSquareNeo-cBd.ttf */; };
+		4188CB9E584F451DBCC2D7DC /* NanumSquareNeo-bRg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C19E9BEB620743B098446B13 /* NanumSquareNeo-bRg.ttf */; };
+		5E8337363CAB412586419523 /* NanumSquareNeo-eHv.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E2FEC5005134FE5B70BDAF6 /* NanumSquareNeo-eHv.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-adot_clone-adot_cloneTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-adot_clone-adot_cloneTests.a */; };
+		7BBEDDC3C047486394899136 /* NanumSquareNeo-dEb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9A24238B144998BCDB8CC8 /* NanumSquareNeo-dEb.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		E39113191EB74B5F94CCD794 /* NanumSquareNeo-aLt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBDBFC6F34234070BB0616FA /* NanumSquareNeo-aLt.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,12 +43,17 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = adot_clone/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-adot_clone-adot_cloneTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-adot_clone-adot_cloneTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-adot_clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adot_clone.debug.xcconfig"; path = "Target Support Files/Pods-adot_clone/Pods-adot_clone.debug.xcconfig"; sourceTree = "<group>"; };
+		5358BE7483674C0BBA29CD0A /* NanumSquareNeo-cBd.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NanumSquareNeo-cBd.ttf"; path = "../src/assets/fonts/NanumSquareNeo-cBd.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-adot_clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adot_clone.release.xcconfig"; path = "Target Support Files/Pods-adot_clone/Pods-adot_clone.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-adot_clone-adot_cloneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adot_clone-adot_cloneTests.debug.xcconfig"; path = "Target Support Files/Pods-adot_clone-adot_cloneTests/Pods-adot_clone-adot_cloneTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-adot_clone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-adot_clone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = adot_clone/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-adot_clone-adot_cloneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adot_clone-adot_cloneTests.release.xcconfig"; path = "Target Support Files/Pods-adot_clone-adot_cloneTests/Pods-adot_clone-adot_cloneTests.release.xcconfig"; sourceTree = "<group>"; };
+		9E2FEC5005134FE5B70BDAF6 /* NanumSquareNeo-eHv.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NanumSquareNeo-eHv.ttf"; path = "../src/assets/fonts/NanumSquareNeo-eHv.ttf"; sourceTree = "<group>"; };
+		C19E9BEB620743B098446B13 /* NanumSquareNeo-bRg.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NanumSquareNeo-bRg.ttf"; path = "../src/assets/fonts/NanumSquareNeo-bRg.ttf"; sourceTree = "<group>"; };
+		EBDBFC6F34234070BB0616FA /* NanumSquareNeo-aLt.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NanumSquareNeo-aLt.ttf"; path = "../src/assets/fonts/NanumSquareNeo-aLt.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		EE9A24238B144998BCDB8CC8 /* NanumSquareNeo-dEb.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NanumSquareNeo-dEb.ttf"; path = "../src/assets/fonts/NanumSquareNeo-dEb.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +132,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				89A2791B95A1449CB7C1A2C6 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -135,6 +146,19 @@
 				00E356EE1AD99517003FC87E /* adot_cloneTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		89A2791B95A1449CB7C1A2C6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EBDBFC6F34234070BB0616FA /* NanumSquareNeo-aLt.ttf */,
+				C19E9BEB620743B098446B13 /* NanumSquareNeo-bRg.ttf */,
+				5358BE7483674C0BBA29CD0A /* NanumSquareNeo-cBd.ttf */,
+				EE9A24238B144998BCDB8CC8 /* NanumSquareNeo-dEb.ttf */,
+				9E2FEC5005134FE5B70BDAF6 /* NanumSquareNeo-eHv.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -244,6 +268,11 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				E39113191EB74B5F94CCD794 /* NanumSquareNeo-aLt.ttf in Resources */,
+				4188CB9E584F451DBCC2D7DC /* NanumSquareNeo-bRg.ttf in Resources */,
+				188C5DB8C8FE44D199BF836E /* NanumSquareNeo-cBd.ttf in Resources */,
+				7BBEDDC3C047486394899136 /* NanumSquareNeo-dEb.ttf in Resources */,
+				5E8337363CAB412586419523 /* NanumSquareNeo-eHv.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
