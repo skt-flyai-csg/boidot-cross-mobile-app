@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
-import MyAppText from '../MyAppText';
+import TextComponent from '../Text/index';
 
 type CardProps = {
   name: string;
@@ -15,15 +15,18 @@ const Card: FC<CardProps> = ({name, isDetail, contents}) => {
   return (
     <View style={[styles.view, {backgroundColor: colors.textWhite}]}>
       <View style={[styles.flex]}>
-        <MyAppText style={[styles.text, {color: colors.textNavy}]}>
+        <TextComponent
+          weight="heavy"
+          style={[styles.text, {color: colors.textNavy}]}>
           {name}
-        </MyAppText>
+        </TextComponent>
         {isDetail && (
           <View style={[styles.detail]}>
-            <MyAppText
+            <TextComponent
+              weight="bold"
               style={[styles.detailText, {color: colors.textLightGrey}]}>
               자세히 보기
-            </MyAppText>
+            </TextComponent>
             <Icon name="chevron-right" size={16} color={colors.textLightGrey} />
           </View>
         )}
@@ -46,14 +49,12 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   text: {
-    fontWeight: '700',
     fontSize: 16,
     lineHeight: 20,
     letterSpacing: -0.4,
   },
   detailText: {
     fontSize: 12,
-    fontWeight: '500',
     lineHeight: 16,
   },
 });

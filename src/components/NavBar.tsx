@@ -2,7 +2,7 @@ import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 import {useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
-import MyAppText from './MyAppText';
+import TextComponent from './Text';
 
 const NavBar = () => {
   const {colors} = useTheme();
@@ -10,15 +10,19 @@ const NavBar = () => {
     <View style={[styles.view, {backgroundColor: colors.textWhite}]}>
       <View style={[styles.icon]}>
         <Icon name="home" size={24} color={colors.textNavy} />
-        <MyAppText style={[styles.text, {color: colors.textNavy}]}>
+        <TextComponent
+          weight="heavy"
+          style={[styles.text, {color: colors.textNavy}]}>
           홈
-        </MyAppText>
+        </TextComponent>
       </View>
       <View style={[styles.icon]}>
         <Icon name="message-square" size={24} color={colors.textLightGrey} />
-        <MyAppText style={[styles.text, {color: colors.textLightGrey}]}>
+        <TextComponent
+          weight="heavy"
+          style={[styles.text, {color: colors.textLightGrey}]}>
           챗T
-        </MyAppText>
+        </TextComponent>
       </View>
       <View style={[styles.me, {backgroundColor: colors.backgroundHome}]}>
         <Image
@@ -28,15 +32,19 @@ const NavBar = () => {
       </View>
       <View style={[styles.icon]}>
         <Icon name="message-square" size={24} color={colors.textLightGrey} />
-        <MyAppText style={[styles.text, {color: colors.textLightGrey}]}>
+        <TextComponent
+          weight="heavy"
+          style={[styles.text, {color: colors.textLightGrey}]}>
           프렌즈
-        </MyAppText>
+        </TextComponent>
       </View>
       <View style={[styles.icon]}>
         <Icon name="menu" size={24} color={colors.textLightGrey} />
-        <MyAppText style={[styles.text, {color: colors.textLightGrey}]}>
+        <TextComponent
+          weight="heavy"
+          style={[styles.text, {color: colors.textLightGrey}]}>
           메뉴
-        </MyAppText>
+        </TextComponent>
       </View>
     </View>
   );
@@ -68,7 +76,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 10,
-    fontWeight: '700',
     lineHeight: 12,
   },
 });

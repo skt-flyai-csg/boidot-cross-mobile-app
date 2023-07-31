@@ -4,8 +4,8 @@ import {useTheme} from 'react-native-paper';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import TopBar from '../../components/TopBar';
 import Card from '../../components/Home/Card';
-import MyAppText from '../../components/MyAppText';
 import NavBar from '../../components/NavBar';
+import TextComponent from '../../components/Text';
 
 const Home = () => {
   const {colors} = useTheme();
@@ -15,9 +15,9 @@ const Home = () => {
         style={[styles.SafeAreaView, {backgroundColor: colors.backgroundHome}]}>
         <TopBar name={'에이닷'} isSettings={false} />
         <View style={[styles.View]}>
-          <MyAppText style={[styles.text]}>
+          <TextComponent weight="heavy" style={[styles.text]}>
             날씨 맑고 미세먼지 괜찮아! 즐거운 하루 시작! 🌤️
-          </MyAppText>
+          </TextComponent>
         </View>
         <ScrollView
           style={[styles.ScrollView, {backgroundColor: colors.backgroundGrey}]}>
@@ -43,7 +43,6 @@ const styles = StyleSheet.create({
   },
   text: {
     width: 200,
-    fontWeight: '700',
     fontSize: 18,
     lineHeight: 24,
     letterSpacing: -0.45,

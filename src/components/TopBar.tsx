@@ -1,17 +1,19 @@
 import React, {FC} from 'react';
 import {StyleSheet, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import MyAppText from './MyAppText';
+import TextComponent from './Text';
 
-type TopBarProps = {
+interface TopBarProps {
   isSettings: boolean;
   name: string;
-};
+}
 
 const TopBar: FC<TopBarProps> = ({isSettings, name}) => {
   return (
     <View style={[styles.view]}>
-      <MyAppText style={[styles.text]}>{name}</MyAppText>
+      <TextComponent weight="heavy" style={[styles.text]}>
+        {name}
+      </TextComponent>
       {isSettings && (
         <View style={[styles.iconBox]}>
           <Icon name="bell" size={24} />
@@ -33,7 +35,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    fontWeight: '700',
     fontSize: 18,
     lineHeight: 24,
     letterSpacing: -0.45,
