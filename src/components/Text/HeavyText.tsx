@@ -15,5 +15,5 @@ const HeavyText: React.FC<TextProps> = props => {
 export default HeavyText;
 
 const styles = StyleSheet.create({
-  family: {fontFamily: 'NanumSquareNeo-eHv.ttf', fontWeight: '700'},
+  family: {fontFamily: 'NanumSquareNeo-Variable', fontWeight: '700'},
 });

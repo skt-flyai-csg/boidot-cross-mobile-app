@@ -15,5 +15,5 @@ const BoldText: React.FC<TextProps> = props => {
 export default BoldText;
 
 const styles = StyleSheet.create({
-  family: {fontFamily: 'NanumSquareNeo-cBd.ttf', fontWeight: '500'},
+  family: {fontFamily: 'NanumSquareNeo-Variable', fontWeight: '500'},
 });

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
-import Home from './src/pages/Home';
 import {View} from 'react-native';
+import Menu from './src/pages/Menu';
 
 declare global {
   namespace ReactNativePaper {
@@ -28,10 +28,13 @@ const theme = {
     testColor: '#BADA55',
     backgroundHome: '#BBE5FE',
     backgroundGrey: '#F1F2F6',
+    backgroundGeneral: '#F4F5F9',
     textWhite: '#FFFFFF',
     textLightGrey: '#9DA3B1',
+    textGrey: '#585F6F',
     textNormal: '#171723',
     textNavy: '#07153C',
+    secondary: '#3A4767',
   },
 };
 
@@ -39,7 +42,7 @@ export default function App() {
   return (
     <PaperProvider theme={theme}>
       <View>
-        <Home></Home>
+        <Menu></Menu>
       </View>
     </PaperProvider>
   );

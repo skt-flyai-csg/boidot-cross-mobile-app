@@ -15,5 +15,5 @@ const RegularText: React.FC<TextProps> = props => {
 export default RegularText;
 
 const styles = StyleSheet.create({
-  family: {fontFamily: 'NanumSquareNeo-bRg.ttf', fontWeight: '400'},
+  family: {fontFamily: 'NanumSquareNeo-Variable', fontWeight: '400'},
 });
