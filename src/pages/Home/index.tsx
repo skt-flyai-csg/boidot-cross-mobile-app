@@ -5,24 +5,28 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import TopBar from '../../components/TopBar';
 import Card from '../../components/Home/Card';
 import MyAppText from '../../components/MyAppText';
+import NavBar from '../../components/NavBar';
 
 const Home = () => {
   const {colors} = useTheme();
   return (
-    <SafeAreaView
-      style={[styles.SafeAreaView, {backgroundColor: colors.backgroundHome}]}>
-      <TopBar name={'에이닷'} isSettings={false} />
-      <View style={[styles.View]}>
-        <MyAppText style={[styles.text]}>
-          날씨 맑고 미세먼지 괜찮아! 즐거운 하루 시작! 🌤️
-        </MyAppText>
-      </View>
-      <ScrollView
-        style={[styles.ScrollView, {backgroundColor: colors.backgroundGrey}]}>
-        <Card name="오늘 날씨" isDetail={true} />
-        <Card name="인기 YouTube" isDetail={false} />
-      </ScrollView>
-    </SafeAreaView>
+    <>
+      <SafeAreaView
+        style={[styles.SafeAreaView, {backgroundColor: colors.backgroundHome}]}>
+        <TopBar name={'에이닷'} isSettings={false} />
+        <View style={[styles.View]}>
+          <MyAppText style={[styles.text]}>
+            날씨 맑고 미세먼지 괜찮아! 즐거운 하루 시작! 🌤️
+          </MyAppText>
+        </View>
+        <ScrollView
+          style={[styles.ScrollView, {backgroundColor: colors.backgroundGrey}]}>
+          <Card name="오늘 날씨" isDetail={true} />
+          <Card name="인기 YouTube" isDetail={false} />
+        </ScrollView>
+      </SafeAreaView>
+      <NavBar />
+    </>
   );
 };
 
