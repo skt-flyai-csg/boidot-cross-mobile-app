@@ -27,7 +27,7 @@ const theme = {
     ...DefaultTheme.colors,
     testColor: '#BADA55',
     backgroundHome: '#BBE5FE',
-    backgroundGrey: '#F1F2F6',
+    backgroundGrey: '#E8E9ED',
     backgroundGeneral: '#F4F5F9',
     textWhite: '#FFFFFF',
     textLightGrey: '#9DA3B1',
