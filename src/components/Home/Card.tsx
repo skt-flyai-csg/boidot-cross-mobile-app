@@ -4,11 +4,11 @@ import {useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
 import TextComponent from '../Text/index';
 
-type CardProps = {
+interface CardProps {
   name: string;
   isDetail: boolean;
   contents?: React.ReactNode;
-};
+}
 
 const Card: FC<CardProps> = ({name, isDetail, contents}) => {
   const {colors} = useTheme();
