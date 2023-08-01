@@ -18,26 +18,28 @@ export interface IconProps {
     | 'star'
     | 'tick'
     | 'volume';
+  width: number;
+  height: number;
 }
 
-const IconComponent: React.FC<IconProps> = ({type}) => {
+const IconComponent: React.FC<IconProps> = ({type, width, height}) => {
   switch (type) {
     case 'buy':
-      return <Buy />;
+      return <Buy width={width} height={height} />;
     case 'calendar':
-      return <Calendar />;
+      return <Calendar width={width} height={height} />;
     case 'game':
-      return <Game />;
+      return <Game width={width} height={height} />;
     case 'heart':
-      return <Heart />;
+      return <Heart width={width} height={height} />;
     case 'notification':
-      return <Notification />;
+      return <Notification width={width} height={height} />;
     case 'star':
-      return <Star />;
+      return <Star width={width} height={height} />;
     case 'tick':
-      return <Tick />;
+      return <Tick width={width} height={height} />;
     case 'volume':
-      return <Volume />;
+      return <Volume width={width} height={height} />;
   }
 };
 

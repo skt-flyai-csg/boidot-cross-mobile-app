@@ -9,8 +9,13 @@ import Svg, {
   Stop,
 } from 'react-native-svg';
 /* SVGR has dropped some elements not supported by react-native-svg: filter */
-const SvgComponent = (props: SvgProps) => (
-  <Svg width={20} height={16} viewBox="0 0 126.28 98.26" fill="none" {...props}>
+const SvgComponent = ({width, height, ...props}: SvgProps) => (
+  <Svg
+    width={width}
+    height={height}
+    viewBox="0 0 126.28 98.26"
+    fill="none"
+    {...props}>
     <G filter="url(#a)">
       <Path
         fill="url(#b)"
