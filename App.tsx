@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
 import {View} from 'react-native';
-import Menu from './src/pages/Menu';
+import Menu from './src/screens/Menu';
+import ChatT from './src/screens/ChatT';
 
 declare global {
   namespace ReactNativePaper {
@@ -26,6 +27,8 @@ const theme = {
   colors: {
     ...DefaultTheme.colors,
     testColor: '#BADA55',
+    primary: '#4264EC',
+    primaryHover: '#3B5AD4',
     backgroundHome: '#BBE5FE',
     backgroundGrey: '#E8E9ED',
     backgroundGeneral: '#F4F5F9',
@@ -42,7 +45,7 @@ export default function App() {
   return (
     <PaperProvider theme={theme}>
       <View>
-        <Menu></Menu>
+        <ChatT />
       </View>
     </PaperProvider>
   );
