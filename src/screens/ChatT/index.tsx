@@ -10,6 +10,7 @@ import NavBar from '../../components/NavBar';
 import TopBar from '../../components/TopBar';
 import {Text, useTheme} from 'react-native-paper';
 import TextComponent from '../../components/Text';
+import Example from '../../components/ChatT/Example';
 
 const ChatT = () => {
   const {colors} = useTheme();
@@ -39,8 +40,25 @@ const ChatT = () => {
               styles.alignCenter,
               styles.justifyCenter,
               styles.box,
+              styles.gap18,
               {backgroundColor: colors.textWhite},
-            ]}></View>
+            ]}>
+            <Example
+              name="message-circle"
+              title="질문에 대한 답변을 해보세요"
+              example="“ 인공 지능은 무엇인가요? “"
+            />
+            <Example
+              name="edit"
+              title="창의적인 글쓰기를 해보세요"
+              example="“ 백설 공주 결말을 다르게 만들어줘 “"
+            />
+            <Example
+              name="file-text"
+              title="긴 글이나 글 요약을 해보세요"
+              example="“ 어린왕자 소설 요약해줘 “"
+            />
+          </View>
           <View style={[styles.gap12]}>
             <TouchableHighlight
               style={[
@@ -92,6 +110,9 @@ const styles = StyleSheet.create({
   },
   gap12: {
     gap: 12,
+  },
+  gap18: {
+    gap: 18,
   },
   alignCenter: {
     alignItems: 'center',
