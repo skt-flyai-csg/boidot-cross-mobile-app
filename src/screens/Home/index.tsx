@@ -10,23 +10,20 @@ import TextComponent from '../../components/Text';
 const Home = () => {
   const {colors} = useTheme();
   return (
-    <>
-      <SafeAreaView
-        style={[styles.SafeAreaView, {backgroundColor: colors.backgroundHome}]}>
-        <TopBar name={'에이닷'} isSettings={false} />
-        <View style={[styles.View]}>
-          <TextComponent weight="heavy" style={[styles.text]}>
-            날씨 맑고 미세먼지 괜찮아! 즐거운 하루 시작! 🌤️
-          </TextComponent>
-        </View>
-        <ScrollView
-          style={[styles.ScrollView, {backgroundColor: colors.backgroundGrey}]}>
-          <Card name="오늘 날씨" isDetail={true} />
-          <Card name="인기 YouTube" isDetail={false} />
-        </ScrollView>
-      </SafeAreaView>
-      <NavBar />
-    </>
+    <SafeAreaView
+      style={[styles.SafeAreaView, {backgroundColor: colors.backgroundHome}]}>
+      <TopBar name={'에이닷'} isSettings={false} />
+      <View style={[styles.View]}>
+        <TextComponent weight="heavy" style={[styles.text]}>
+          날씨 맑고 미세먼지 괜찮아! 즐거운 하루 시작! 🌤️
+        </TextComponent>
+      </View>
+      <ScrollView
+        style={[styles.ScrollView, {backgroundColor: colors.backgroundGrey}]}>
+        <Card name="오늘 날씨" isDetail={true} />
+        <Card name="인기 YouTube" isDetail={false} />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

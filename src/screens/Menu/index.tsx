@@ -13,125 +13,121 @@ import Box from '../../components/Main/Box';
 const Menu = () => {
   const {colors} = useTheme();
   return (
-    <>
-      <SafeAreaView
-        style={[
-          styles.SafeAreaView,
-          {backgroundColor: colors.backgroundGeneral},
-        ]}>
-        <TopBar name={'메뉴'} isSettings={true} />
-        <ScrollView style={[styles.view]}>
-          <View style={[styles.profile, {backgroundColor: colors.secondary}]}>
-            <View style={[styles.row, styles.info]}>
-              <Image
-                style={[styles.img]}
-                source={require('../../assets/images/myImage.png')}
-              />
-              <View style={[styles.gap8]}>
-                <View style={[styles.row, styles.gap12]}>
-                  <TextComponent
-                    weight="extra-bold"
-                    style={[{color: colors.textWhite}]}>
-                    에이닷
-                  </TextComponent>
-                  <View
-                    style={[styles.detail, {backgroundColor: colors.textGrey}]}>
-                    <Icon
-                      name="chevron-right"
-                      size={16}
-                      color={colors.textLightGrey}
-                    />
-                  </View>
-                </View>
-                <View style={[styles.row, styles.status]}>
-                  <View style={[styles.row, styles.val]}>
-                    <IconComponent type="star" width={14} height={16} />
-                    <TextComponent
-                      weight="bold"
-                      style={[styles.statusText, {color: colors.textWhite}]}>
-                      0
-                    </TextComponent>
-                  </View>
-                  <View style={[styles.row, styles.val]}>
-                    <IconComponent type="heart" width={20} height={16} />
-                    <TextComponent
-                      weight="bold"
-                      style={[styles.statusText, {color: colors.textWhite}]}>
-                      3,730
-                    </TextComponent>
-                  </View>
-                </View>
-              </View>
-            </View>
-            <View
-              style={[styles.line, {backgroundColor: colors.textLightGrey}]}
+    <SafeAreaView
+      style={[
+        styles.SafeAreaView,
+        {backgroundColor: colors.backgroundGeneral},
+      ]}>
+      <TopBar name={'메뉴'} isSettings={true} />
+      <ScrollView style={[styles.view]}>
+        <View style={[styles.profile, {backgroundColor: colors.secondary}]}>
+          <View style={[styles.row, styles.info]}>
+            <Image
+              style={[styles.img]}
+              source={require('../../assets/images/myImage.png')}
             />
-            <View style={[styles.row, styles.bottom]}>
-              <View style={[styles.row, styles.val]}>
-                <IconComponent type="notification" width={24} height={24} />
+            <View style={[styles.gap8]}>
+              <View style={[styles.row, styles.gap12]}>
                 <TextComponent
-                  weight="regular"
-                  style={[styles.bottomText, {color: colors.textWhite}]}>
-                  퀘스트
+                  weight="extra-bold"
+                  style={[{color: colors.textWhite}]}>
+                  에이닷
                 </TextComponent>
+                <View
+                  style={[styles.detail, {backgroundColor: colors.textGrey}]}>
+                  <Icon
+                    name="chevron-right"
+                    size={16}
+                    color={colors.textLightGrey}
+                  />
+                </View>
               </View>
-              <View style={[styles.row, styles.val]}>
-                <IconComponent type="buy" width={24} height={24} />
-                <TextComponent
-                  weight="regular"
-                  style={[styles.bottomText, {color: colors.textWhite}]}>
-                  캐릭터 스토어
-                </TextComponent>
+              <View style={[styles.row, styles.status]}>
+                <View style={[styles.row, styles.val]}>
+                  <IconComponent type="star" width={14} height={16} />
+                  <TextComponent
+                    weight="bold"
+                    style={[styles.statusText, {color: colors.textWhite}]}>
+                    0
+                  </TextComponent>
+                </View>
+                <View style={[styles.row, styles.val]}>
+                  <IconComponent type="heart" width={20} height={16} />
+                  <TextComponent
+                    weight="bold"
+                    style={[styles.statusText, {color: colors.textWhite}]}>
+                    3,730
+                  </TextComponent>
+                </View>
               </View>
             </View>
           </View>
           <View
-            style={[styles.notice, {backgroundColor: colors.backgroundGrey}]}>
-            <IconComponent type="volume" width={32} height={24} />
-            <TextComponent weight="bold" style={[{color: colors.textGrey}]}>
-              [업데이트] A. v2.0.0 업데이트 안내
-            </TextComponent>
-          </View>
-          <View style={[styles.need]}>
-            <TextComponent
-              weight="heavy"
-              style={[styles.needText, {color: colors.textNavy}]}>
-              지금 필요한 기능
-            </TextComponent>
-            <View style={[styles.row, styles.justifyBetween]}>
-              <NeedCard iconType="calendar" title="캘린더">
-                일정과 할일을 한번에 관리
-              </NeedCard>
-              <NeedCard iconType="game" title="게임">
-                지금 바로 실력 뽐내보기
-              </NeedCard>
-              <NeedCard iconType="tick" title="루틴">
-                내 루틴 7개
-              </NeedCard>
+            style={[styles.line, {backgroundColor: colors.textLightGrey}]}
+          />
+          <View style={[styles.row, styles.bottom]}>
+            <View style={[styles.row, styles.val]}>
+              <IconComponent type="notification" width={24} height={24} />
+              <TextComponent
+                weight="regular"
+                style={[styles.bottomText, {color: colors.textWhite}]}>
+                퀘스트
+              </TextComponent>
+            </View>
+            <View style={[styles.row, styles.val]}>
+              <IconComponent type="buy" width={24} height={24} />
+              <TextComponent
+                weight="regular"
+                style={[styles.bottomText, {color: colors.textWhite}]}>
+                캐릭터 스토어
+              </TextComponent>
             </View>
           </View>
-          <View style={[styles.help]}>
-            <TextComponent
-              weight="heavy"
-              style={[styles.needText, {color: colors.textNavy}]}>
-              일상을 돕는 기능
-            </TextComponent>
-            <View>
-              <Box iconType="tick" title="루틴">
-                내 루틴 7개
-              </Box>
-              <Box iconType="calendar" title="캘린더">
-                일정과 할일을 한번에 관리
-              </Box>
-              <Box iconType="game" title="게임">
-                지금 바로 실력 뽐내보기
-              </Box>
-            </View>
+        </View>
+        <View style={[styles.notice, {backgroundColor: colors.backgroundGrey}]}>
+          <IconComponent type="volume" width={32} height={24} />
+          <TextComponent weight="bold" style={[{color: colors.textGrey}]}>
+            [업데이트] A. v2.0.0 업데이트 안내
+          </TextComponent>
+        </View>
+        <View style={[styles.need]}>
+          <TextComponent
+            weight="heavy"
+            style={[styles.needText, {color: colors.textNavy}]}>
+            지금 필요한 기능
+          </TextComponent>
+          <View style={[styles.row, styles.justifyBetween]}>
+            <NeedCard iconType="calendar" title="캘린더">
+              일정과 할일을 한번에 관리
+            </NeedCard>
+            <NeedCard iconType="game" title="게임">
+              지금 바로 실력 뽐내보기
+            </NeedCard>
+            <NeedCard iconType="tick" title="루틴">
+              내 루틴 7개
+            </NeedCard>
           </View>
-        </ScrollView>
-      </SafeAreaView>
-      <NavBar />
-    </>
+        </View>
+        <View style={[styles.help]}>
+          <TextComponent
+            weight="heavy"
+            style={[styles.needText, {color: colors.textNavy}]}>
+            일상을 돕는 기능
+          </TextComponent>
+          <View>
+            <Box iconType="tick" title="루틴">
+              내 루틴 7개
+            </Box>
+            <Box iconType="calendar" title="캘린더">
+              일정과 할일을 한번에 관리
+            </Box>
+            <Box iconType="game" title="게임">
+              지금 바로 실력 뽐내보기
+            </Box>
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
