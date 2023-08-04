@@ -1,8 +1,12 @@
 import * as React from 'react';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
 import {View} from 'react-native';
+import ChatBot from './src/components/ChatModal';
+import NavBar from './src/components/NavBar';
 import Menu from './src/screens/Menu';
+import Home from './src/screens/Home';
 import ChatT from './src/screens/ChatT';
+import VoiceTest from './src/components/VoiceText';
 
 declare global {
   namespace ReactNativePaper {
@@ -44,9 +48,7 @@ const theme = {
 export default function App() {
   return (
     <PaperProvider theme={theme}>
-      <View>
-        <ChatT />
-      </View>
+      <VoiceTest />
     </PaperProvider>
   );
 }
