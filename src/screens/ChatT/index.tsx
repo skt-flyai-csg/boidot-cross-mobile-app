@@ -1,6 +1,5 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, TouchableHighlight, View} from 'react-native';
-import NavBar from '../../components/NavBar';
 import TopBar from '../../components/TopBar';
 import {useTheme} from 'react-native-paper';
 import TextComponent from '../../components/Text';

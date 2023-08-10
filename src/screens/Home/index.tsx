@@ -4,7 +4,6 @@ import {useTheme} from 'react-native-paper';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import TopBar from '../../components/TopBar';
 import Card from '../../components/Home/Card';
-import NavBar from '../../components/NavBar';
 import TextComponent from '../../components/Text';
 
 const Home = () => {
@@ -30,7 +29,7 @@ const Home = () => {
 export default Home;
 
 const styles = StyleSheet.create({
-  SafeAreaView: {width: '100%', height: '100%'},
+  SafeAreaView: {flex: 1},
   View: {width: '100%', height: 136, padding: 24},
   ScrollView: {
     flex: 1,

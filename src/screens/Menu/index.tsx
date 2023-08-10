@@ -2,7 +2,6 @@ import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import TopBar from '../../components/TopBar';
 import {Image, ScrollView, StyleSheet, View} from 'react-native';
-import NavBar from '../../components/NavBar';
 import {useTheme} from 'react-native-paper';
 import TextComponent from '../../components/Text';
 import Icon from 'react-native-vector-icons/Feather';
