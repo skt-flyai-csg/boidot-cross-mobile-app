@@ -1,10 +1,14 @@
-import React from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import React, {FC} from 'react';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
 import TextComponent from './Text';
 
-const NavBar = () => {
+interface NavBarProps {
+  handleOpenPress: () => void;
+}
+
+const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
   const {colors} = useTheme();
   return (
     <View style={[styles.view, {backgroundColor: colors.textWhite}]}>
@@ -24,12 +28,14 @@ const NavBar = () => {
           챗T
         </TextComponent>
       </View>
-      <View style={[styles.me, {backgroundColor: colors.backgroundHome}]}>
+      <TouchableOpacity
+        onPress={handleOpenPress}
+        style={[styles.me, {backgroundColor: colors.backgroundHome}]}>
         <Image
           style={[styles.me]}
           source={require('../assets/images/myImage.png')}
         />
-      </View>
+      </TouchableOpacity>
       <View style={[styles.icon]}>
         <Icon name="message-square" size={24} color={colors.textLightGrey} />
         <TextComponent
