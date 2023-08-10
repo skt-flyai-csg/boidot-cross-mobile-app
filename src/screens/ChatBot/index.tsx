@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import LinearGradient from 'react-native-linear-gradient';
 import {useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
 import IconMat from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -9,7 +10,7 @@ const ChatBot = () => {
   const {colors} = useTheme();
   return (
     <View style={[styles.view]}>
-      <View style={[styles.footer]}>
+      <LinearGradient colors={['#00000000', '#000000']} style={[styles.footer]}>
         <TouchableOpacity>
           <Icon name="user" size={24} color={colors.textWhite} />
         </TouchableOpacity>
@@ -20,7 +21,7 @@ const ChatBot = () => {
         <TouchableOpacity>
           <IconMat name="keyboard" size={24} color={colors.textWhite} />
         </TouchableOpacity>
-      </View>
+      </LinearGradient>
     </View>
   );
 };
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   footer: {
-    paddingVertical: 20,
+    paddingVertical: 30,
     marginBottom: 34,
     flexDirection: 'row',
     justifyContent: 'space-around',
