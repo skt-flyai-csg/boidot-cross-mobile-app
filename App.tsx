@@ -8,9 +8,9 @@ import BottomSheet, {
   BottomSheetBackdropProps,
 } from '@gorhom/bottom-sheet';
 import {useCallback, useMemo, useRef} from 'react';
-import {Text, View} from 'react-native';
 import {StyleSheet} from 'react-native';
 import ChatT from './src/screens/ChatT';
+import ChatBot from './src/screens/ChatBot';
 
 declare global {
   namespace ReactNativePaper {
@@ -56,7 +56,7 @@ export default function App() {
   };
 
   // variables
-  const snapPoints = useMemo(() => [780, 780], []);
+  const snapPoints = useMemo(() => ['94%', '94%'], []);
 
   const renderBackdrop = useCallback(
     (props: BottomSheetBackdropProps) => (
@@ -79,10 +79,10 @@ export default function App() {
           index={-1}
           snapPoints={snapPoints}
           enablePanDownToClose={true}
-          backdropComponent={renderBackdrop}>
-          <View style={[styles.contentContainer]}>
-            <Text>Awesome 🎉</Text>
-          </View>
+          backdropComponent={renderBackdrop}
+          handleIndicatorStyle={[styles.handleIndicator]}
+          backgroundStyle={[styles.bottomSheet]}>
+          <ChatBot />
         </BottomSheet>
       </PaperProvider>
     </GestureHandlerRootView>
@@ -92,5 +92,13 @@ export default function App() {
 const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
+  },
+  bottomSheet: {
+    backgroundColor: theme.colors.textNormal,
+    borderRadius: 15,
+  },
+  handleIndicator: {
+    marginVertical: 10,
+    backgroundColor: theme.colors.textWhite,
   },
 });
