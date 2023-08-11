@@ -13,7 +13,7 @@ const Footer: React.FC<FooterProps> = ({handleButtonClick}) => {
   const {colors} = useTheme();
   return (
     <LinearGradient
-      colors={['#00000000', '#000000']}
+      colors={['#00000000', colors.textNormal]}
       style={[styles.footer, styles.paddingHorizontal]}>
       <TouchableOpacity>
         <Icon name="user" size={24} color={colors.textWhite} />

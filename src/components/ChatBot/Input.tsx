@@ -4,15 +4,33 @@ import {useKeyboardHeight} from '../../hooks/useKeyboardHeight';
 import {useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
 
+interface MessageProps {
+  isMe: boolean;
+  message: string;
+}
+
 interface InputProps {
   text: string;
   setText: Dispatch<SetStateAction<string>>;
   inputRef: RefObject<TextInput>;
+  setMessages: Dispatch<SetStateAction<MessageProps[]>>;
+  handleDismiss: () => void;
 }
 
-const Input: React.FC<InputProps> = ({text, setText, inputRef}) => {
+const Input: React.FC<InputProps> = ({
+  text,
+  setText,
+  inputRef,
+  setMessages,
+  handleDismiss,
+}) => {
   const keyboardHeight = useKeyboardHeight();
   const {colors} = useTheme();
+
+  const handleSubmit = () => {
+    setMessages(prev => [...prev, {isMe: true, message: text}]);
+    handleDismiss();
+  };
 
   return (
     <View
@@ -38,6 +56,7 @@ const Input: React.FC<InputProps> = ({text, setText, inputRef}) => {
         <Icon name="mic" size={24} color={colors.primary} />
       </TouchableOpacity>
       <TouchableOpacity
+        onPress={handleSubmit}
         style={[
           styles.button,
           {
