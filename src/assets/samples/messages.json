@@ -1,0 +1,12 @@
+{
+  "messages": [
+    {
+      "isMe": true,
+      "message": "우리 아이 지금 뭐해?"
+    },
+    {
+      "isMe": false,
+      "message": "채은이는 지금 숙취로 고생이에요!"
+    }
+  ]
+}
