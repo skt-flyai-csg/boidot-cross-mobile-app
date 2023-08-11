@@ -7,5 +7,5 @@ export interface TextProps {
 }
 
 export interface TextComponentProps extends TextProps {
-  weight: 'light' | 'regular' | 'bold' | 'extra-bold' | 'heavy';
+  weight: 'light' | 'regular' | 'bold' | 'extraBold' | 'heavy';
 }

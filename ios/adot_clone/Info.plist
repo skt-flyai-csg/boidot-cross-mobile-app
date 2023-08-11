@@ -56,11 +56,15 @@
 		<string>Feather.ttf</string>
 		<string>MaterialIcons.ttf</string>
 		<string>MaterialCommunityIcons.ttf</string>
-		<string>NanumSquareNeo-Variable.ttf</string>
+		<string>NanumSquareNeo-aLt.ttf</string>
+		<string>NanumSquareNeo-bRg.ttf</string>
+		<string>NanumSquareNeo-cBd.ttf</string>
+		<string>NanumSquareNeo-dEb.ttf</string>
+		<string>NanumSquareNeo-eHv.ttf</string>
 	</array>
 	<key>NSMicrophoneUsageDescription</key>
-  <string>Description of why you require the use of the microphone</string>
-  <key>NSSpeechRecognitionUsageDescription</key>
-  <string>Description of why you require the use of the speech recognition</string>
+	<string>Description of why you require the use of the microphone</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Description of why you require the use of the speech recognition</string>
 </dict>
 </plist>

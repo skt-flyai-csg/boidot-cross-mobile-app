@@ -15,5 +15,5 @@ const ExtraBoldText: React.FC<TextProps> = props => {
 export default ExtraBoldText;
 
 const styles = StyleSheet.create({
-  family: {fontFamily: 'NanumSquareNeo-Variable', fontWeight: '600'},
+  family: {fontFamily: 'NanumSquareNeo-Variable', fontWeight: '700'},
 });

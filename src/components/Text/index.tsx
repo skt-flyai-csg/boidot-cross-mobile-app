@@ -1,30 +1,37 @@
 import React from 'react';
-import LightText from './LightText';
-import RegularText from './RegularText';
-import BoldText from './BoldText';
-import ExtraBoldText from './ExtraBoldText';
-import HeavyText from './HeavyText';
 import {TextComponentProps} from './TextProps';
+import {Text, TextStyle} from 'react-native';
 
 const TextComponent: React.FC<TextComponentProps> = ({
   weight,
   style,
   children,
 }) => {
-  switch (weight) {
-    case 'light':
-      return <LightText style={style}>{children}</LightText>;
-    case 'regular':
-      return <RegularText style={style}>{children}</RegularText>;
-    case 'bold':
-      return <BoldText style={style}>{children}</BoldText>;
-    case 'extra-bold':
-      return <ExtraBoldText style={style}>{children}</ExtraBoldText>;
-    case 'heavy':
-      return <HeavyText style={style}>{children}</HeavyText>;
-    default:
-      return <RegularText style={style}>{children}</RegularText>;
-  }
+  const fontMap = {
+    light: 'NanumSquareNeo-aLt',
+    regular: 'NanumSquareNeo-bRg',
+    bold: 'NanumSquareNeo-cBd',
+    extraBold: 'NanumSquareNeo-dEb',
+    heavy: 'NanumSquareNeo-eHv',
+  };
+
+  const weightMap: Record<string, TextStyle['fontWeight']> = {
+    light: '300',
+    regular: '400',
+    bold: '700',
+    extraBold: '800',
+    heavy: '900',
+  };
+
+  return (
+    <Text
+      style={[
+        {fontFamily: fontMap[weight], fontWeight: weightMap[weight]},
+        style,
+      ]}>
+      {children}
+    </Text>
+  );
 };
 
 export default TextComponent;

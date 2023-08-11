@@ -15,5 +15,5 @@ const LightText: React.FC<TextProps> = props => {
 export default LightText;
 
 const styles = StyleSheet.create({
-  family: {fontFamily: 'NanumSquareNeo-Variable', fontWeight: '300'},
+  family: {fontFamily: 'NanumSquareNeo-Variable', fontWeight: '100'},
 });
