@@ -40,6 +40,7 @@ const theme = {
     backgroundHome: '#BBE5FE',
     backgroundGrey: '#E8E9ED',
     backgroundGeneral: '#F4F5F9',
+    backgroundBox: '#22222C',
     textWhite: '#FFFFFF',
     textLightGrey: '#9DA3B1',
     textGrey: '#585F6F',
