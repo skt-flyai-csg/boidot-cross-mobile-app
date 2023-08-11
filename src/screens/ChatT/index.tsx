@@ -16,7 +16,7 @@ const ChatT = () => {
       <TopBar name={'챗T'} isSettings={true} />
       <View style={[styles.view]}>
         <View style={[styles.gap8, styles.alignCenter]}>
-          <TextComponent weight="extra-bold" style={[styles.title]}>
+          <TextComponent weight="extraBold" style={[styles.title]}>
             언제든지, 끊임없이, 빠르게 무료로
             <TextComponent weight="heavy" style={[{color: colors.primary}]}>
               ChatGPT

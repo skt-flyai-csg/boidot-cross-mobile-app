@@ -28,7 +28,7 @@ const Menu = () => {
             <View style={[styles.gap8]}>
               <View style={[styles.row, styles.gap12]}>
                 <TextComponent
-                  weight="extra-bold"
+                  weight="extraBold"
                   style={[{color: colors.textWhite}]}>
                   에이닷
                 </TextComponent>
