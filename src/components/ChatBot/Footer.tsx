@@ -49,5 +49,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     marginTop: 'auto',
+    position: 'absolute',
+    zIndex: 10,
+    width: '100%',
+    bottom: 0,
   },
 });

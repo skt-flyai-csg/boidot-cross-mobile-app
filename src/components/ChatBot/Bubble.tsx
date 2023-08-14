@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 12,
     alignSelf: 'flex-start',
-    marginBottom: 10,
   },
   text: {
     fontSize: 12,
