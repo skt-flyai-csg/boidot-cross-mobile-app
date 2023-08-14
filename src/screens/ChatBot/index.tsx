@@ -110,7 +110,10 @@ const ChatBot = () => {
             />
           </View>
         </View>
-        <Footer handleButtonClick={handleButtonClick} />
+        <Footer
+          handleButtonClick={handleButtonClick}
+          setMessages={setMessages}
+        />
         <KeyboardAvoidingView
           behavior={Platform.select({
             ios: 'padding',

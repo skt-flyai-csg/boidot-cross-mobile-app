@@ -4,7 +4,7 @@ import {useKeyboardHeight} from '../../hooks/useKeyboardHeight';
 import {useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
 
-interface MessageProps {
+export interface MessageProps {
   isMe: boolean;
   message: string;
 }

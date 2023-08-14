@@ -30,7 +30,6 @@ export const useVoiceRecognition = (): VoiceRecognitionState => {
   }, []);
 
   const startRecognizing = useCallback(async () => {
-    console.log('start');
     setResults([]);
     setPartialResults([]);
 
@@ -42,7 +41,6 @@ export const useVoiceRecognition = (): VoiceRecognitionState => {
   }, []);
 
   const stopRecognizing = useCallback(async () => {
-    console.log('end');
     try {
       await Voice.stop();
     } catch (e) {
