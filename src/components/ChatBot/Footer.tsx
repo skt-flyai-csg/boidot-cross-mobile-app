@@ -17,24 +17,18 @@ const Footer: React.FC<FooterProps> = ({handleButtonClick, setMessages}) => {
   const {colors} = useTheme();
   const {results, startRecognizing, stopRecognizing} = useVoiceRecognition();
   const [recognitionRunning, setRecognitionRunning] = useState(false);
+  const [isResultAdded, setIsResultAdded] = useState(false);
 
   useEffect(() => {
-    if (!recognitionRunning && results.length > 0) {
-      setMessages(prev => {
-        const messageExists = prev.some(
-          message => message.message === results[0],
-        );
-        if (!messageExists) {
-          return [...prev, {isMe: true, message: results[0]}];
-        } else {
-          return prev;
-        }
-      });
+    if (!recognitionRunning && results.length > 0 && !isResultAdded) {
+      setMessages(prev => [...prev, {isMe: true, message: results[0]}]);
+      setIsResultAdded(true);
     }
   }, [recognitionRunning, results]);
 
   const onStart = () => {
     startRecognizing();
+    setIsResultAdded(false);
     setRecognitionRunning(true);
     setTimeout(() => {
       stopRecognizing();
