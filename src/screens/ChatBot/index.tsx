@@ -15,6 +15,7 @@ import {useTheme} from 'react-native-paper';
 import moment from 'moment';
 import data from '../../assets/samples/messages.json';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
+import Character from '../../components/ChatBot/Character';
 
 const ChatBot = () => {
   const [text, setText] = useState('');
@@ -110,10 +111,8 @@ const ChatBot = () => {
             />
           </View>
         </View>
-        <Footer
-          handleButtonClick={handleButtonClick}
-          setMessages={setMessages}
-        />
+        <Character />
+        <Footer handleButtonClick={handleButtonClick} />
         <KeyboardAvoidingView
           behavior={Platform.select({
             ios: 'padding',
