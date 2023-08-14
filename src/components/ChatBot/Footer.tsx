@@ -1,4 +1,10 @@
-import React, {Dispatch, SetStateAction, useEffect, useState} from 'react';
+import React, {
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {useTheme} from 'react-native-paper';
@@ -24,9 +30,9 @@ const Footer: React.FC<FooterProps> = ({handleButtonClick, setMessages}) => {
       setMessages(prev => [...prev, {isMe: true, message: results[0]}]);
       setIsResultAdded(true);
     }
-  }, [recognitionRunning, results]);
+  }, [recognitionRunning, results, isResultAdded]);
 
-  const onStart = () => {
+  const onStart = useCallback(() => {
     startRecognizing();
     setIsResultAdded(false);
     setRecognitionRunning(true);
@@ -34,18 +40,18 @@ const Footer: React.FC<FooterProps> = ({handleButtonClick, setMessages}) => {
       stopRecognizing();
       setRecognitionRunning(false);
     }, 5000);
-  };
+  }, [startRecognizing, stopRecognizing]);
 
   return (
-    <View style={[styles.view]}>
+    <View style={styles.view}>
       {recognitionRunning && (
-        <TextComponent weight="bold" style={[styles.text]}>
+        <TextComponent weight="bold" style={styles.text}>
           {results.length === 0 ? '듣고 있어요' : results}
         </TextComponent>
       )}
       <LinearGradient
         colors={['#00000000', colors.textNormal]}
-        style={[styles.footer, styles.paddingHorizontal]}>
+        style={styles.footer}>
         <TouchableOpacity>
           <Icon name="user" size={24} color={colors.textWhite} />
         </TouchableOpacity>
@@ -76,9 +82,6 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
   },
-  paddingHorizontal: {
-    paddingHorizontal: 16,
-  },
   button: {
     width: 40,
     height: 40,
@@ -88,6 +91,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     paddingVertical: 30,
+    paddingHorizontal: 16,
     marginBottom: 34,
     flexDirection: 'row',
     justifyContent: 'space-around',
