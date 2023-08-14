@@ -9,8 +9,8 @@ import BottomSheet, {
 } from '@gorhom/bottom-sheet';
 import {useCallback, useMemo, useRef} from 'react';
 import {StyleSheet} from 'react-native';
-import ChatT from './src/screens/ChatT';
 import ChatBot from './src/screens/ChatBot';
+import Diary from './src/screens/Diary';
 
 declare global {
   namespace ReactNativePaper {
@@ -73,7 +73,7 @@ export default function App() {
   return (
     <GestureHandlerRootView style={[styles.contentContainer]}>
       <PaperProvider theme={theme}>
-        <ChatT />
+        <Diary />
         <NavBar handleOpenPress={handleOpenPress} />
         <BottomSheet
           ref={bottomSheetRef}
