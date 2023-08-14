@@ -37,11 +37,11 @@ const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
         />
       </TouchableOpacity>
       <View style={[styles.icon]}>
-        <Icon name="message-square" size={24} color={colors.textLightGrey} />
+        <Icon name="eye" size={24} color={colors.textLightGrey} />
         <TextComponent
           weight="heavy"
           style={[styles.text, {color: colors.textLightGrey}]}>
-          프렌즈
+          보이닷
         </TextComponent>
       </View>
       <View style={[styles.icon]}>
