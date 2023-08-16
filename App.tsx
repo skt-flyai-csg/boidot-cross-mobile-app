@@ -11,6 +11,7 @@ import {useCallback, useMemo, useRef} from 'react';
 import {StyleSheet} from 'react-native';
 import ChatBot from './src/screens/ChatBot';
 import Diary from './src/screens/Diary';
+import Calendar from './src/screens/Calendar';
 
 declare global {
   namespace ReactNativePaper {
@@ -73,7 +74,7 @@ export default function App() {
   return (
     <GestureHandlerRootView style={[styles.contentContainer]}>
       <PaperProvider theme={theme}>
-        <Diary />
+        <Calendar />
         <NavBar handleOpenPress={handleOpenPress} />
         <BottomSheet
           ref={bottomSheetRef}
