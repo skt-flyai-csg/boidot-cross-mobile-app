@@ -6,6 +6,7 @@ const TextComponent: React.FC<TextComponentProps> = ({
   weight,
   style,
   children,
+  ...props
 }) => {
   const fontMap = {
     light: 'NanumSquareNeo-aLt',
@@ -25,6 +26,7 @@ const TextComponent: React.FC<TextComponentProps> = ({
 
   return (
     <Text
+      {...props}
       style={[
         {fontFamily: fontMap[weight], fontWeight: weightMap[weight]},
         style,
