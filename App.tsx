@@ -20,6 +20,7 @@ import ChatT from './src/screens/ChatT';
 import Menu from './src/screens/Menu';
 import Diary from './src/screens/Diary';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Report from './src/screens/Report';
 
 declare global {
   namespace ReactNativePaper {
@@ -87,7 +88,7 @@ export default function App() {
     <NavigationContainer ref={navigationRef}>
       <GestureHandlerRootView style={[styles.contentContainer]}>
         <PaperProvider theme={theme}>
-          <Stack.Navigator>
+          {/* <Stack.Navigator>
             <Stack.Screen
               name="Home"
               component={Home}
@@ -113,7 +114,8 @@ export default function App() {
               component={Calendar}
               options={{headerShown: false}}
             />
-          </Stack.Navigator>
+          </Stack.Navigator> */}
+          <Report />
           <NavBar handleOpenPress={handleOpenPress} />
           <BottomSheet
             ref={bottomSheetRef}
