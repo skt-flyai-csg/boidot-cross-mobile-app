@@ -96,8 +96,8 @@ const Menu = () => {
             지금 필요한 기능
           </TextComponent>
           <View style={[styles.row, styles.justifyBetween]}>
-            <NeedCard iconType="calendar" title="캘린더">
-              일정과 할일을 한번에 관리
+            <NeedCard iconType="calendar" title="보이닷">
+              우리 아이 하루 일과 확인하기
             </NeedCard>
             <NeedCard iconType="game" title="게임">
               지금 바로 실력 뽐내보기
@@ -117,8 +117,8 @@ const Menu = () => {
             <Box iconType="tick" title="루틴">
               내 루틴 7개
             </Box>
-            <Box iconType="calendar" title="캘린더">
-              일정과 할일을 한번에 관리
+            <Box iconType="calendar" title="보이닷">
+              우리 아이 하루 일과 확인하기
             </Box>
             <Box iconType="game" title="게임">
               지금 바로 실력 뽐내보기
@@ -133,7 +133,7 @@ const Menu = () => {
 export default Menu;
 
 const styles = StyleSheet.create({
-  SafeAreaView: {width: '100%', height: '100%'},
+  SafeAreaView: {flex: 1},
   row: {
     flexDirection: 'row',
   },
