@@ -25,7 +25,7 @@ const Diary = () => {
           style={[styles.date, {color: colors.primary}]}>
           {moment(diary.createdTime).format('YYYY.MM.DD')}
         </TextComponent>
-        <TextComponent weight="regular" style={[styles.title]}>
+        <TextComponent weight="bold" style={[styles.title]}>
           우리 아이 하루
         </TextComponent>
         <View style={[styles.scrollView, {backgroundColor: colors.textWhite}]}>
