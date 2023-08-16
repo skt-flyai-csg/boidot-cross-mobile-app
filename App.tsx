@@ -10,8 +10,16 @@ import BottomSheet, {
 import {useCallback, useMemo, useRef} from 'react';
 import {StyleSheet} from 'react-native';
 import ChatBot from './src/screens/ChatBot';
-import Diary from './src/screens/Diary';
 import Calendar from './src/screens/Calendar';
+import {
+  NavigationContainer,
+  useNavigationContainerRef,
+} from '@react-navigation/native';
+import Home from './src/screens/Home';
+import ChatT from './src/screens/ChatT';
+import Menu from './src/screens/Menu';
+import Diary from './src/screens/Diary';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 declare global {
   namespace ReactNativePaper {
@@ -51,6 +59,8 @@ const theme = {
   },
 };
 
+const Stack = createNativeStackNavigator();
+
 export default function App() {
   const bottomSheetRef = useRef<BottomSheet>(null);
   const handleOpenPress = () => {
@@ -71,23 +81,53 @@ export default function App() {
     [],
   );
 
+  const navigationRef = useNavigationContainerRef();
+
   return (
-    <GestureHandlerRootView style={[styles.contentContainer]}>
-      <PaperProvider theme={theme}>
-        <Calendar />
-        <NavBar handleOpenPress={handleOpenPress} />
-        <BottomSheet
-          ref={bottomSheetRef}
-          index={-1}
-          snapPoints={snapPoints}
-          enablePanDownToClose={true}
-          backdropComponent={renderBackdrop}
-          handleIndicatorStyle={[styles.handleIndicator]}
-          backgroundStyle={[styles.bottomSheet]}>
-          <ChatBot />
-        </BottomSheet>
-      </PaperProvider>
-    </GestureHandlerRootView>
+    <NavigationContainer ref={navigationRef}>
+      <GestureHandlerRootView style={[styles.contentContainer]}>
+        <PaperProvider theme={theme}>
+          <Stack.Navigator>
+            <Stack.Screen
+              name="Home"
+              component={Home}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="ChatT"
+              component={ChatT}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Menu"
+              component={Menu}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Diary"
+              component={Diary}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Calendar"
+              component={Calendar}
+              options={{headerShown: false}}
+            />
+          </Stack.Navigator>
+          <NavBar handleOpenPress={handleOpenPress} />
+          <BottomSheet
+            ref={bottomSheetRef}
+            index={-1}
+            snapPoints={snapPoints}
+            enablePanDownToClose={true}
+            backdropComponent={renderBackdrop}
+            handleIndicatorStyle={[styles.handleIndicator]}
+            backgroundStyle={[styles.bottomSheet]}>
+            <ChatBot />
+          </BottomSheet>
+        </PaperProvider>
+      </GestureHandlerRootView>
+    </NavigationContainer>
   );
 }
 
