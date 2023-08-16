@@ -7,16 +7,16 @@ import TextComponent from '../Text/index';
 interface CardProps {
   name: string;
   isDetail: boolean;
-  contents?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-const Card: FC<CardProps> = ({name, isDetail, contents}) => {
+const Card: FC<CardProps> = ({name, isDetail, children}) => {
   const {colors} = useTheme();
   return (
     <View style={[styles.view, {backgroundColor: colors.textWhite}]}>
       <View style={[styles.flex]}>
         <TextComponent
-          weight="heavy"
+          weight="bold"
           style={[styles.text, {color: colors.textNavy}]}>
           {name}
         </TextComponent>
@@ -31,7 +31,7 @@ const Card: FC<CardProps> = ({name, isDetail, contents}) => {
           </View>
         )}
       </View>
-      {contents}
+      <View style={[styles.contentBox]}>{children}</View>
     </View>
   );
 };
@@ -56,5 +56,9 @@ const styles = StyleSheet.create({
   detailText: {
     fontSize: 12,
     lineHeight: 16,
+  },
+  contentBox: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
