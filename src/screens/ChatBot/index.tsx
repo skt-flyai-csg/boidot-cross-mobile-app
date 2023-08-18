@@ -20,6 +20,7 @@ import {useAuth} from '../../contexts/AuthContext';
 import axios from 'axios';
 import {BASE_URL, USER_ID} from '@env';
 import LoadingIndicator from '../../components/ChatBot/LoadingIndicator';
+import ReportButton from '../../components/ChatBot/ReportButton';
 
 const ChatBot = () => {
   const [text, setText] = useState('');
@@ -32,6 +33,7 @@ const ChatBot = () => {
   const {token, setTokenAndSave} = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [isProcessed, setIsProcessed] = useState(false);
+  const [report, setReport] = useState({objectId: '', createdTime: ''});
 
   const handleDismiss = useCallback(() => {
     setText('');
@@ -52,9 +54,7 @@ const ChatBot = () => {
   }, []);
 
   const renderItem = useCallback(
-    ({item}) => (
-      <Bubble isMe={item.isMe} message={item.message} isLoading={isLoading} />
-    ),
+    ({item}) => <Bubble isMe={item.isMe} message={item.message} />,
     [],
   );
 
@@ -62,14 +62,6 @@ const ChatBot = () => {
     () => <View style={styles.separator} />,
     [],
   );
-
-  const scrollToBottom = useCallback(() => {
-    flatListRef.current?.scrollToEnd({animated: true});
-  }, []);
-
-  useEffect(() => {
-    scrollToBottom();
-  }, []);
 
   const listFooter = useCallback(() => {
     return isLoading ? (
@@ -83,6 +75,10 @@ const ChatBot = () => {
           },
         ]}>
         <LoadingIndicator />
+      </View>
+    ) : isProcessed ? (
+      <View style={[styles.listFooter]}>
+        <ReportButton report={report} />
       </View>
     ) : (
       <View style={[styles.listFooter]} />
@@ -113,6 +109,10 @@ const ChatBot = () => {
           return () => clearTimeout(timer);
         }
         setIsLoading(false);
+        setReport({
+          objectId: response.data.object_id,
+          createdTime: response.data.createdTime,
+        });
         setMessages(prev => [
           ...prev,
           {
@@ -186,6 +186,14 @@ const ChatBot = () => {
     handleDismiss();
   };
 
+  const scrollToBottom = useCallback(() => {
+    flatListRef.current?.scrollToEnd({animated: true});
+  }, []);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, []);
+
   return (
     <TouchableWithoutFeedback onPress={handleDismiss}>
       <View style={styles.view}>
@@ -222,9 +230,9 @@ const ChatBot = () => {
                 stiffness: 200,
                 overshootClamping: false,
               }}
+              ListFooterComponent={listFooter}
               onContentSizeChange={scrollToBottom}
               onLayout={scrollToBottom}
-              ListFooterComponent={listFooter}
             />
           </View>
         </View>
