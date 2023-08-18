@@ -1,24 +1,12 @@
 {
   "messages": [
     {
-      "isMe": true,
-      "message": "우리 아이 지금 뭐해?"
+      "isMe": false,
+      "message": "안녕하세요 임채은 님!! 전 당신의 AI 친구, 에이닷 입니다!"
     },
     {
       "isMe": false,
-      "message": "(3분 전) 채은이는 지금 코딩해요!"
-    },
-    {
-      "isMe": true,
-      "message": "오늘 우리 아이 하루 요약해줘"
-    },
-    {
-      "isMe": false,
-      "message": "에이닷이 일기를 생성 중입니다. 조금만 기다려주세요..."
-    },
-    {
-      "isMe": false,
-      "message": "에이닷이 채은이의 하루를 요약했어요! 아래 버튼을 눌러 확인해보세요."
+      "message": "전 무엇이든 도와줄 수 있어요! 저랑 같이 어떤 걸 해보실래요?"
     }
   ]
 }
