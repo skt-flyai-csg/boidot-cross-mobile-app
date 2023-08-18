@@ -8,7 +8,7 @@ import TextComponent from '../../components/Text';
 import Icon from 'react-native-vector-icons/Feather';
 import moment from 'moment';
 
-const Diary = () => {
+const Diary = ({routes}) => {
   const {colors} = useTheme();
   const [diary, setDiary] = useState(data);
 

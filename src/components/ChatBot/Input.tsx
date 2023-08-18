@@ -66,11 +66,11 @@ const Input: React.FC<InputProps> = ({
     }
   }
 
-  async function gptRequestPost() {
+  async function gptRequestPost(request_object: string) {
     try {
       const response = await axios.post(
         `${BASE_URL}/gpt-requests/`,
-        {user_id: USER_ID, request_object: 'report'},
+        {user_id: USER_ID, request_object: request_object},
         {
           headers: {
             Authorization: `Token ${token}`,
@@ -105,8 +105,22 @@ const Input: React.FC<InputProps> = ({
 
   const handleSubmit = () => {
     setMessages(prev => [...prev, {isMe: true, message: text}]);
-    if (text === '우리 아이 보고서') {
-      gptRequestPost();
+    switch (text) {
+      case '우리 아이 보고서':
+        gptRequestPost('report');
+        break;
+      case '우리 아이 일기':
+        gptRequestPost('diary');
+        break;
+      default:
+        setMessages(prev => [
+          ...prev,
+          {
+            isMe: false,
+            message: '무슨 말씀이신지 잘 모르겠어요. 다시 한번 말씀해주세요.',
+          },
+        ]);
+        break;
     }
     handleDismiss();
   };

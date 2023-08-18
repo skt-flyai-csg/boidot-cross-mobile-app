@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import {useTheme} from 'react-native-paper';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -6,10 +6,40 @@ import TopBar from '../../components/TopBar';
 import data from '../../assets/samples/report.json';
 import TextComponent from '../../components/Text';
 import moment from 'moment';
+import {useAuth} from '../../contexts/AuthContext';
+import axios from 'axios';
+import {BASE_URL} from '@env';
 
-const Report = () => {
+const Report = ({route}) => {
   const {colors} = useTheme();
   const [report, setReport] = useState(data);
+  const {token, setTokenAndSave} = useAuth();
+  const {objectId} = route.params;
+
+  console.log(objectId);
+
+  async function getReport(objectId: string) {
+    try {
+      const response = await axios.get(`${BASE_URL}/reports/${objectId}/`, {
+        headers: {
+          Authorization: `Token ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+      if (response.status === 200) {
+        setReport(response.data);
+      }
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  useEffect(() => {
+    if (objectId) {
+      getReport(objectId);
+    }
+  }, [objectId]);
+
   return (
     <SafeAreaView
       style={[
