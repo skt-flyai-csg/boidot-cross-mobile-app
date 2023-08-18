@@ -24,6 +24,7 @@ import {AUTH_ID, AUTH_PW, BASE_URL} from '@env';
 import axios from 'axios';
 import FlipperAsyncStorage from 'rn-flipper-async-storage-advanced';
 import {useAuth} from './src/contexts/AuthContext';
+import Report from './src/screens/Report/index';
 
 declare global {
   namespace ReactNativePaper {
@@ -147,6 +148,11 @@ function Main() {
             <Stack.Screen
               name="Calendar"
               component={Calendar}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Report"
+              component={Report}
               options={{headerShown: false}}
             />
           </Stack.Navigator>
