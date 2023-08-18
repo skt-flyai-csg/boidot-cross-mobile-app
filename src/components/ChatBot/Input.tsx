@@ -13,7 +13,6 @@ interface InputProps {
   text: string;
   setText: Dispatch<SetStateAction<string>>;
   inputRef: RefObject<TextInput>;
-  setMessages: Dispatch<SetStateAction<MessageProps[]>>;
   handleSubmit: () => void;
 }
 

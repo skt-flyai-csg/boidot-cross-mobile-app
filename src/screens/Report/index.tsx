@@ -16,8 +16,6 @@ const Report = ({route}) => {
   const {token, setTokenAndSave} = useAuth();
   const {objectId} = route.params;
 
-  console.log(objectId);
-
   async function getReport(objectId: string) {
     try {
       const response = await axios.get(`${BASE_URL}/reports/${objectId}/`, {
