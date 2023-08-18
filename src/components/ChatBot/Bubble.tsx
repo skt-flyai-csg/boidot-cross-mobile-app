@@ -2,9 +2,6 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useTheme} from 'react-native-paper';
 import TextComponent from '../Text';
-import LoadingIndicator from './LoadingIndicator';
-import ReportButton from './ReportButton';
-import DiaryButton from './DiaryButton';
 
 interface BubbleProps {
   isMe: boolean;
@@ -46,25 +43,14 @@ const Bubble: React.FC<BubbleProps> = ({isMe, message}) => {
             {message}
           </TextComponent>
         </View>
-        {/* <View
-          style={[
-            styles.indicatorContainer,
-            styles.bubble,
-            {
-              backgroundColor: colors.secondary,
-              marginRight: 'auto',
-            },
-          ]}>
-          <LoadingIndicator />
-        </View> */}
-        <ReportButton
+        {/* <ReportButton
           createdTime="2023-08-18T01:40:04.780595Z"
           objectId="a938c5df-b9be-4918-9201-26180ebc1ce8"
         />
         <DiaryButton
           createdTime="2023-08-18T01:40:04.780595Z"
           objectId="eae03c0e-b536-4cae-aba7-44c64a5a53f8"
-        />
+        /> */}
       </View>
     );
   }

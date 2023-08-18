@@ -16,6 +16,10 @@ import moment from 'moment';
 import data from '../../assets/samples/messages.json';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
 import Character from '../../components/ChatBot/Character';
+import {useAuth} from '../../contexts/AuthContext';
+import axios from 'axios';
+import {BASE_URL, USER_ID} from '@env';
+import LoadingIndicator from '../../components/ChatBot/LoadingIndicator';
 
 const ChatBot = () => {
   const [text, setText] = useState('');
@@ -25,6 +29,9 @@ const ChatBot = () => {
   const flatListRef = useRef(null);
   const [messages, setMessages] = useState(data.messages);
   const {colors} = useTheme();
+  const {token, setTokenAndSave} = useAuth();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isProcessed, setIsProcessed] = useState(false);
 
   const handleDismiss = useCallback(() => {
     setText('');
@@ -45,7 +52,9 @@ const ChatBot = () => {
   }, []);
 
   const renderItem = useCallback(
-    ({item}) => <Bubble isMe={item.isMe} message={item.message} />,
+    ({item}) => (
+      <Bubble isMe={item.isMe} message={item.message} isLoading={isLoading} />
+    ),
     [],
   );
 
@@ -62,12 +71,120 @@ const ChatBot = () => {
     scrollToBottom();
   }, []);
 
-  const listFooter = useCallback(() => <View style={styles.listFooter} />, []);
+  const listFooter = useCallback(() => {
+    return isLoading ? (
+      <View
+        style={[
+          styles.indicatorContainer,
+          styles.bubble,
+          {
+            backgroundColor: colors.secondary,
+            marginRight: 'auto',
+          },
+        ]}>
+        <LoadingIndicator />
+      </View>
+    ) : (
+      <View style={[styles.listFooter]} />
+    );
+  }, [isLoading]);
 
   const contentContainerStyle = useMemo(
     () => StyleSheet.flatten([styles.bottomSheetContent]),
     [],
   );
+
+  async function getGptRequest(requestId: string) {
+    console.log('리포트 받아오는 중', requestId);
+    try {
+      const response = await axios.get(
+        `${BASE_URL}/gpt-requests/${requestId}/`,
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+      if (response.status === 200) {
+        setIsProcessed(response.data.is_processed);
+        if (!response.data.is_processed) {
+          const timer = setTimeout(() => getGptRequest(requestId), 1000);
+          return () => clearTimeout(timer);
+        }
+        setIsLoading(false);
+        setMessages(prev => [
+          ...prev,
+          {
+            isMe: false,
+            message:
+              '에이닷이 리포트를 생성했어요! 아래 버튼을 눌러 확인해주세요!',
+          },
+        ]);
+      }
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async function postGptRequest(request_object: string) {
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/gpt-requests/`,
+        {user_id: USER_ID, request_object: request_object},
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+      if (response.status === 201) {
+        setIsProcessed(response.data.is_processed);
+        setIsLoading(true);
+        setMessages(prev => [
+          ...prev,
+          {
+            isMe: false,
+            message: '에이닷이 보고서를 생성 중입니다. 조금만 기다려주세요....',
+          },
+        ]);
+        const timer = setTimeout(() => getGptRequest(response.data.id), 60000);
+        return () => clearTimeout(timer);
+      }
+    } catch (err) {
+      setMessages(prev => [
+        ...prev,
+        {
+          isMe: false,
+          message: '메시지 전송에 실패했어요. 다시 물어봐주세요.',
+        },
+      ]);
+      throw err;
+    }
+  }
+
+  const handleSubmit = () => {
+    setMessages(prev => [...prev, {isMe: true, message: text}]);
+    switch (text) {
+      case 'ㅂ':
+        postGptRequest('report');
+        break;
+      case 'ㅇ':
+        postGptRequest('diary');
+        break;
+      default:
+        setMessages(prev => [
+          ...prev,
+          {
+            isMe: false,
+            message: '무슨 말씀이신지 잘 모르겠어요. 다시 한번 말씀해주세요.',
+          },
+        ]);
+        break;
+    }
+    handleDismiss();
+  };
 
   return (
     <TouchableWithoutFeedback onPress={handleDismiss}>
@@ -127,7 +244,7 @@ const ChatBot = () => {
               text={text}
               setText={setText}
               setMessages={setMessages}
-              handleDismiss={handleDismiss}
+              handleSubmit={handleSubmit}
             />
           )}
         </KeyboardAvoidingView>
@@ -182,5 +299,23 @@ const styles = StyleSheet.create({
   },
   listFooter: {
     height: 200,
+  },
+  bubble: {
+    borderRadius: 16,
+    paddingHorizontal: 10,
+    paddingVertical: 12,
+    alignSelf: 'flex-start',
+  },
+  text: {
+    fontSize: 12,
+    lineHeight: 18,
+  },
+  gap12: {
+    gap: 12,
+  },
+  indicatorContainer: {
+    flexDirection: 'row',
+    marginBottom: 200,
+    marginTop: 12,
   },
 });
