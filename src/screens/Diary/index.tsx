@@ -17,12 +17,14 @@ import axios from 'axios';
 import {BASE_URL} from '@env';
 import {useAuth} from '../../contexts/AuthContext';
 import LinearGradient from 'react-native-linear-gradient';
+import LoadingIndicator from '../../components/LoadingIndicator';
 
 const Diary = ({route}) => {
   const {colors} = useTheme();
   const [diary, setDiary] = useState(data);
   const {token} = useAuth();
   const {objectId} = route.params;
+  const [isLoading, setIsLoading] = useState(true);
 
   async function getDiary() {
     try {
@@ -33,6 +35,7 @@ const Diary = ({route}) => {
         },
       });
       if (response.status === 200) {
+        setIsLoading(false);
         setDiary(response.data);
       }
     } catch (err) {
@@ -41,6 +44,7 @@ const Diary = ({route}) => {
   }
 
   useEffect(() => {
+    setIsLoading(true);
     getDiary();
   }, [objectId]);
 
@@ -51,37 +55,45 @@ const Diary = ({route}) => {
       <SafeAreaView>
         <TopBar name={'보이닷'} isSettings={true} isWhite={true} />
         <View style={[styles.view]}>
-          <TextComponent
-            weight="bold"
-            style={[styles.date, {color: colors.textWhite}]}>
-            {moment(diary.createdTime).format('YYYY.MM.DD')}
-          </TextComponent>
-          <TextComponent
-            weight="extraBold"
-            style={[styles.title, {color: colors.textWhite}]}>
-            강아지와 놀았어요!
-          </TextComponent>
-          <View style={[styles.scrollView]}>
-            <ScrollView contentContainerStyle={[styles.alignCenter]}>
-              <Image
-                source={require('../../assets/images/picture_diary.png')}
-              />
+          {isLoading ? (
+            <View style={[styles.justifyCenter]}>
+              <LoadingIndicator radius={10} color={colors.textWhite} />
+            </View>
+          ) : (
+            <>
               <TextComponent
-                weight="light"
-                style={[styles.text, {color: colors.textNormal}]}>
-                {diary.body}
+                weight="bold"
+                style={[styles.date, {color: colors.textWhite}]}>
+                {moment(diary.createdTime).format('YYYY.MM.DD')}
               </TextComponent>
-            </ScrollView>
-          </View>
-          <TouchableOpacity
-            style={[styles.button, {backgroundColor: '#F36980'}]}>
-            <Icon name="calendar" color={colors.textWhite} size={20} />
-            <TextComponent
-              weight="bold"
-              style={[styles.buttonText, {color: colors.textWhite}]}>
-              지난 일기 보러가기
-            </TextComponent>
-          </TouchableOpacity>
+              <TextComponent
+                weight="extraBold"
+                style={[styles.title, {color: colors.textWhite}]}>
+                강아지와 놀았어요!
+              </TextComponent>
+              <View style={[styles.scrollView]}>
+                <ScrollView contentContainerStyle={[styles.alignCenter]}>
+                  <Image
+                    source={require('../../assets/images/picture_diary.png')}
+                  />
+                  <TextComponent
+                    weight="light"
+                    style={[styles.text, {color: colors.textNormal}]}>
+                    {diary.body}
+                  </TextComponent>
+                </ScrollView>
+              </View>
+              <TouchableOpacity
+                style={[styles.button, {backgroundColor: '#F36980'}]}>
+                <Icon name="calendar" color={colors.textWhite} size={20} />
+                <TextComponent
+                  weight="bold"
+                  style={[styles.buttonText, {color: colors.textWhite}]}>
+                  지난 일기 보러가기
+                </TextComponent>
+              </TouchableOpacity>
+            </>
+          )}
         </View>
       </SafeAreaView>
     </LinearGradient>
@@ -94,6 +106,9 @@ const styles = StyleSheet.create({
   alignCenter: {
     alignItems: 'center',
     gap: 12,
+  },
+  justifyCenter: {
+    marginTop: 280,
   },
   safeAreaView: {flex: 1},
   view: {

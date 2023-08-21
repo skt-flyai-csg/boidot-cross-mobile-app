@@ -9,12 +9,14 @@ import moment from 'moment';
 import {useAuth} from '../../contexts/AuthContext';
 import axios from 'axios';
 import {BASE_URL} from '@env';
+import LoadingIndicator from '../../components/LoadingIndicator';
 
 const Report = ({route}) => {
   const {colors} = useTheme();
   const [report, setReport] = useState(data);
   const {token} = useAuth();
   const {objectId} = route.params;
+  const [isLoading, setIsLoading] = useState(true);
 
   async function getReport() {
     try {
@@ -25,6 +27,7 @@ const Report = ({route}) => {
         },
       });
       if (response.status === 200) {
+        setIsLoading(false);
         setReport(response.data);
       }
     } catch (err) {
@@ -33,6 +36,7 @@ const Report = ({route}) => {
   }
 
   useEffect(() => {
+    setIsLoading(true);
     getReport();
   }, [objectId]);
 
@@ -44,23 +48,32 @@ const Report = ({route}) => {
       ]}>
       <TopBar name={'보이닷'} isSettings={true} isWhite={false} />
       <View style={[styles.view]}>
-        <TextComponent
-          weight="bold"
-          style={[styles.date, {color: colors.primary}]}>
-          {moment(report.createdTime).format('YYYY.MM.DD')}
-        </TextComponent>
-        <TextComponent weight="bold" style={[styles.title]}>
-          활동 보고서
-        </TextComponent>
-        <View style={[styles.scrollView, {backgroundColor: colors.textWhite}]}>
-          <ScrollView>
+        {isLoading ? (
+          <View style={[styles.justifyCenter]}>
+            <LoadingIndicator radius={10} color={colors.textLightGrey} />
+          </View>
+        ) : (
+          <>
             <TextComponent
-              weight="light"
-              style={[styles.text, {color: colors.textGrey}]}>
-              {report.body}
+              weight="bold"
+              style={[styles.date, {color: colors.primary}]}>
+              {moment(report.createdTime).format('YYYY.MM.DD')}
             </TextComponent>
-          </ScrollView>
-        </View>
+            <TextComponent weight="bold" style={[styles.title]}>
+              활동 보고서
+            </TextComponent>
+            <View
+              style={[styles.scrollView, {backgroundColor: colors.textWhite}]}>
+              <ScrollView>
+                <TextComponent
+                  weight="light"
+                  style={[styles.text, {color: colors.textGrey}]}>
+                  {report.body}
+                </TextComponent>
+              </ScrollView>
+            </View>
+          </>
+        )}
       </View>
     </SafeAreaView>
   );
@@ -74,6 +87,9 @@ const styles = StyleSheet.create({
     paddingVertical: 24,
     justifyContent: 'flex-start',
     alignItems: 'center',
+  },
+  justifyCenter: {
+    marginTop: 280,
   },
   date: {
     fontSize: 20,

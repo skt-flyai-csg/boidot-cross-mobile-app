@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import LoadingIndicator from './LoadingIndicator';
+import LoadingIndicator from '../LoadingIndicator';
 import {useTheme} from 'react-native-paper';
 
 interface ListFooterProps {
@@ -20,7 +20,7 @@ const ListFooter: React.FC<ListFooterProps> = ({isLoading}) => {
           marginRight: 'auto',
         },
       ]}>
-      <LoadingIndicator />
+      <LoadingIndicator radius={5} color={colors.textWhite} />
     </View>
   ) : (
     <View style={[styles.listFooter]} />
