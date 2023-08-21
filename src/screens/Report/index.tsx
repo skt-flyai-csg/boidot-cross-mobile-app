@@ -13,10 +13,10 @@ import {BASE_URL} from '@env';
 const Report = ({route}) => {
   const {colors} = useTheme();
   const [report, setReport] = useState(data);
-  const {token, setTokenAndSave} = useAuth();
+  const {token} = useAuth();
   const {objectId} = route.params;
 
-  async function getReport(objectId: string) {
+  async function getReport() {
     try {
       const response = await axios.get(`${BASE_URL}/reports/${objectId}/`, {
         headers: {
@@ -33,9 +33,7 @@ const Report = ({route}) => {
   }
 
   useEffect(() => {
-    if (objectId) {
-      getReport(objectId);
-    }
+    getReport();
   }, [objectId]);
 
   return (

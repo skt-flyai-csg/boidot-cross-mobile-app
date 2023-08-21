@@ -1,10 +1,4 @@
-import React, {
-  Dispatch,
-  SetStateAction,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {useTheme} from 'react-native-paper';
@@ -12,14 +6,11 @@ import Icon from 'react-native-vector-icons/Feather';
 import IconMat from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useVoiceRecognition} from '../../hooks/useVoiceRecognition';
 import TextComponent from '../Text';
-import {MessageProps} from './Input';
-
 interface FooterProps {
   handleButtonClick: () => void;
-  setMessages: Dispatch<SetStateAction<MessageProps[]>>;
 }
 
-const Footer: React.FC<FooterProps> = ({handleButtonClick, setMessages}) => {
+const Footer: React.FC<FooterProps> = ({handleButtonClick}) => {
   const {colors} = useTheme();
   const {results, startRecognizing, stopRecognizing} = useVoiceRecognition();
   const [recognitionRunning, setRecognitionRunning] = useState(false);
@@ -27,7 +18,10 @@ const Footer: React.FC<FooterProps> = ({handleButtonClick, setMessages}) => {
 
   useEffect(() => {
     if (!recognitionRunning && results.length > 0 && !isResultAdded) {
-      setMessages(prev => [...prev, {isMe: true, message: results[0]}]);
+      // setMessages(prev => [
+      //   ...prev,
+      //   {type: 'bubble', isMe: true, message: results[0]},
+      // ]);
       setIsResultAdded(true);
     }
   }, [recognitionRunning, results, isResultAdded]);

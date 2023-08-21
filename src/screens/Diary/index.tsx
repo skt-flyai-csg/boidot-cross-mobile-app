@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {useTheme} from 'react-native-paper';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -7,10 +7,35 @@ import data from '../../assets/samples/diary.json';
 import TextComponent from '../../components/Text';
 import Icon from 'react-native-vector-icons/Feather';
 import moment from 'moment';
+import axios from 'axios';
+import {BASE_URL} from '@env';
+import {useAuth} from '../../contexts/AuthContext';
 
-const Diary = ({routes}) => {
+const Diary = ({route}) => {
   const {colors} = useTheme();
   const [diary, setDiary] = useState(data);
+  const {token} = useAuth();
+  const {objectId} = route.params;
+
+  async function getDiary() {
+    try {
+      const response = await axios.get(`${BASE_URL}/diaries/${objectId}/`, {
+        headers: {
+          Authorization: `Token ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+      if (response.status === 200) {
+        setDiary(response.data);
+      }
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  useEffect(() => {
+    getDiary();
+  }, [objectId]);
 
   return (
     <SafeAreaView

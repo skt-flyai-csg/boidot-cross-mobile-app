@@ -5,8 +5,13 @@ import {useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
 
 export interface MessageProps {
-  isMe: boolean;
-  message: string;
+  type: string;
+  isMe?: boolean;
+  message?: string;
+  data?: {
+    objectId: string;
+    createdTime: string;
+  };
 }
 
 interface InputProps {

@@ -1,10 +1,12 @@
 {
   "messages": [
     {
+      "type": "bubble",
       "isMe": false,
       "message": "안녕하세요 임채은 님!! 전 당신의 AI 친구, 에이닷 입니다!"
     },
     {
+      "type": "bubble",
       "isMe": false,
       "message": "전 무엇이든 도와줄 수 있어요! 저랑 같이 어떤 걸 해보실래요?"
     }

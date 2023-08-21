@@ -7,17 +7,19 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import Input from '../../components/ChatBot/Input';
+import Input, {MessageProps} from '../../components/ChatBot/Input';
 import Footer from '../../components/ChatBot/Footer';
 import Bubble from '../../components/ChatBot/Bubble';
 import TextComponent from '../../components/Text';
 import {useTheme} from 'react-native-paper';
 import moment from 'moment';
-import data from '../../assets/samples/messages.json';
+import defaultData from '../../assets/samples/messages.json';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
 import Character from '../../components/ChatBot/Character';
 import ListFooter from '../../components/ChatBot/ListFooter';
 import {useGptRequest} from '../../hooks/useGptRequest';
+import ReportButton from '../../components/ChatBot/ReportButton';
+import DiaryButton from '../../components/ChatBot/DiaryButton';
 
 const ChatBot = () => {
   const [text, setText] = useState('');
@@ -25,21 +27,30 @@ const ChatBot = () => {
   const inputRef = useRef(null);
   const date = moment().format('YYYY.MM.DD');
   const flatListRef = useRef(null);
-  const [messages, setMessages] = useState(data.messages);
+  const [messages, setMessages] = useState(defaultData.messages);
   const {colors} = useTheme();
 
-  const handleMessage = useCallback((message: string, isMe: boolean) => {
-    setMessages(prevMessages => [
-      ...prevMessages,
-      {
-        isMe,
-        message,
-      },
-    ]);
-  }, []);
+  const handleMessage = useCallback(
+    ({
+      type,
+      message = '',
+      isMe = true,
+      data = {objectId: '', createdTime: ''},
+    }: MessageProps) => {
+      setMessages(prevMessages => [
+        ...prevMessages,
+        {
+          type,
+          isMe,
+          message,
+          data,
+        },
+      ]);
+    },
+    [],
+  );
 
-  const {report, postGptRequest, isLoading, isProcessed} =
-    useGptRequest(handleMessage);
+  const {postGptRequest, isLoading, isProcessed} = useGptRequest(handleMessage);
 
   const handleDismiss = useCallback(() => {
     setText('');
@@ -48,7 +59,7 @@ const ChatBot = () => {
 
   const handleButtonClick = useCallback(() => {
     setKeyboardVisible(true);
-    setTimeout(() => inputRef.current.focus(), 0);
+    setTimeout(() => inputRef?.current?.focus(), 0);
   }, []);
 
   useEffect(() => {
@@ -59,10 +70,16 @@ const ChatBot = () => {
     return () => keyboardDidHideListener.remove();
   }, []);
 
-  const renderItem = useCallback(
-    ({item}) => <Bubble isMe={item.isMe} message={item.message} />,
-    [],
-  );
+  const renderItem = useCallback(({item}: any) => {
+    switch (item.type) {
+      case 'bubble':
+        return <Bubble isMe={item.isMe} message={item.message} />;
+      case 'report':
+        return <ReportButton report={item.data} />;
+      case 'diary':
+        return <DiaryButton diary={item.data} />;
+    }
+  }, []);
 
   const renderItemSeparator = useCallback(
     () => <View style={styles.separator} />,
@@ -70,14 +87,8 @@ const ChatBot = () => {
   );
 
   const listFooter = useCallback(() => {
-    return (
-      <ListFooter
-        isLoading={isLoading}
-        isProcessed={isProcessed}
-        report={report}
-      />
-    );
-  }, [isLoading]);
+    return <ListFooter isLoading={isLoading} isProcessed={isProcessed} />;
+  }, [isLoading, isProcessed]);
 
   const contentContainerStyle = useMemo(
     () => StyleSheet.flatten([styles.bottomSheetContent]),
@@ -85,7 +96,7 @@ const ChatBot = () => {
   );
 
   const handleSubmit = () => {
-    setMessages(prev => [...prev, {isMe: true, message: text}]);
+    setMessages(prev => [...prev, {type: 'bubble', isMe: true, message: text}]);
     switch (text) {
       case 'ㅂ':
         postGptRequest('report');
@@ -97,6 +108,7 @@ const ChatBot = () => {
         setMessages(prev => [
           ...prev,
           {
+            type: 'bubble',
             isMe: false,
             message: '무슨 말씀이신지 잘 모르겠어요. 다시 한번 말씀해주세요.',
           },
@@ -157,10 +169,7 @@ const ChatBot = () => {
           </View>
         </View>
         <Character />
-        <Footer
-          handleButtonClick={handleButtonClick}
-          setMessages={setMessages}
-        />
+        <Footer handleButtonClick={handleButtonClick} />
         <KeyboardAvoidingView
           behavior={Platform.select({
             ios: 'padding',
@@ -171,7 +180,6 @@ const ChatBot = () => {
               inputRef={inputRef}
               text={text}
               setText={setText}
-              setMessages={setMessages}
               handleSubmit={handleSubmit}
             />
           )}

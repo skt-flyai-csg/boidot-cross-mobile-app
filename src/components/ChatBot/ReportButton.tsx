@@ -14,6 +14,7 @@ interface ReportButtonProps {
 }
 
 const ReportButton: React.FC<ReportButtonProps> = ({report}) => {
+  console.log('ReportButton', report);
   const navigation = useNavigation();
   const {close} = useBottomSheet();
   const handlePressButton = () => {
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'white',
     borderRadius: 12,
+    justifyContent: 'center',
   },
   text: {
     fontSize: 12,

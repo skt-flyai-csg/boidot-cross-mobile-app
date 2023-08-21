@@ -7,24 +7,26 @@ import {useNavigation} from '@react-navigation/native';
 import {useBottomSheet} from '@gorhom/bottom-sheet';
 
 interface DiaryButtonProps {
-  createdTime: string;
-  objectId: string;
+  diary: {
+    createdTime: string;
+    objectId: string;
+  };
 }
 
-const DiaryButton: React.FC<DiaryButtonProps> = ({createdTime, objectId}) => {
+const DiaryButton: React.FC<DiaryButtonProps> = ({diary}) => {
   const {colors} = useTheme();
   const navigation = useNavigation();
   const {close} = useBottomSheet();
   const handlePressButton = () => {
     close();
-    navigation.navigate('Diary', {objectId: objectId});
+    navigation.navigate('Diary', {objectId: diary.objectId});
   };
   return (
     <TouchableOpacity
       style={[styles.button, {backgroundColor: colors.backgroundHome}]}
       onPress={handlePressButton}>
       <TextComponent weight="bold">
-        {moment(createdTime).format('YYYY.MM.DD')}&nbsp; 우리 아이 일기
+        {moment(diary.createdTime).format('YYYY.MM.DD')}&nbsp; 우리 아이 일기
       </TextComponent>
     </TouchableOpacity>
   );
@@ -37,7 +39,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderRadius: 12,
-    alignSelf: 'flex-start',
+    alignSelf: 'center',
     justifyContent: 'center',
   },
 });
