@@ -8,11 +8,11 @@ const Box = () => {
   const {colors} = useTheme();
   const customStyles = {
     container: {
-      backgroundColor: colors.backgroundHome,
+      backgroundColor: '#FEA76A',
       borderRadius: 0,
     },
     text: {
-      color: colors.textNormal,
+      color: colors.textWhite,
     },
   };
   return (
@@ -33,6 +33,7 @@ export default Box;
 
 const styles = StyleSheet.create({
   box: {
+    width: 300,
     marginTop: 30,
     borderRadius: 20,
     paddingVertical: 24,
