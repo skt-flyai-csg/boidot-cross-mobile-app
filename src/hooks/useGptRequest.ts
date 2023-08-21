@@ -17,7 +17,9 @@ export const useGptRequest = (
     if (data.objectId !== '' && isProcessed) {
       handleMessage({
         type: 'bubble',
-        message: '에이닷이 리포트를 생성했어요! 아래 버튼을 눌러 확인해주세요!',
+        message: `에이닷이 ${
+          requestObject === 'report' ? '보고서' : '일기'
+        }를 생성했어요! 아래 버튼을 눌러 확인해주세요!`,
         isMe: false,
       });
       handleMessage({
