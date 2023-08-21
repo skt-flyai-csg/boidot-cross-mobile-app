@@ -18,8 +18,10 @@ export const useGptRequest = (
       handleMessage({
         type: 'bubble',
         message: `에이닷이 ${
-          requestObject === 'report' ? '보고서' : '일기'
-        }를 생성했어요! 아래 버튼을 눌러 확인해주세요!`,
+          requestObject === 'report'
+            ? '아이의 하루를 요약했어요!'
+            : '일기를 생성했어요!'
+        }\n아래 버튼을 눌러 확인해주세요!`,
         isMe: false,
       });
       handleMessage({
@@ -56,8 +58,8 @@ export const useGptRequest = (
       handleMessage({
         type: 'bubble',
         message: `${
-          requestObject === 'report' ? '보고서' : '일기'
-        } 작성에 실패했어요. 다시 시도해주세요.`,
+          requestObject === 'report' ? '하루 요약에' : '일기 작성에'
+        } 실패했어요.\n다시 시도해주세요.`,
         isMe: false,
       });
       throw err;
@@ -83,8 +85,10 @@ export const useGptRequest = (
         handleMessage({
           type: 'bubble',
           message: `에이닷이 ${
-            request_object === 'report' ? '보고서' : '일기'
-          }를 생성 중입니다. 조금만 기다려주세요....`,
+            request_object === 'report'
+              ? '아이의 하루를 요약 중입니다.'
+              : '일기를 생성 중입니다.'
+          }\n조금만 기다려주세요....`,
           isMe: false,
         });
         const timer = setTimeout(() => getGptRequest(response.data.id), 60000);

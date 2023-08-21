@@ -29,7 +29,7 @@ const ReportButton: React.FC<ReportButtonProps> = ({report}) => {
       <TextComponent
         weight="bold"
         style={[styles.text, {color: colors.textNormal}]}>
-        {moment(report.createdTime).format('YYYY.MM.DD')} 활동 보고서
+        {moment(report.createdTime).format('YYYY.MM.DD')} 하루 요약
       </TextComponent>
     </TouchableOpacity>
   );

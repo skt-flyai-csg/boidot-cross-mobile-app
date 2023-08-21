@@ -98,10 +98,10 @@ const ChatBot = () => {
   const handleSubmit = () => {
     setMessages(prev => [...prev, {type: 'bubble', isMe: true, message: text}]);
     switch (text) {
-      case 'ㅂ':
+      case '우리 아이 하루 요약':
         postGptRequest('report');
         break;
-      case 'ㅇ':
+      case '우리 아이 일기':
         postGptRequest('diary');
         break;
       default:
