@@ -23,9 +23,9 @@ const DiaryButton: React.FC<DiaryButtonProps> = ({diary}) => {
   };
   return (
     <TouchableOpacity
-      style={[styles.button, {backgroundColor: colors.backgroundHome}]}
+      style={[styles.button, {backgroundColor: '#F36980'}]}
       onPress={handlePressButton}>
-      <TextComponent weight="bold">
+      <TextComponent weight="bold" style={[{color: colors.textWhite}]}>
         {moment(diary.createdTime).format('YYYY.MM.DD')}&nbsp; 우리 아이 일기
       </TextComponent>
     </TouchableOpacity>
@@ -39,6 +39,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderRadius: 12,
+    borderWidth: 1,
+    borderColor: 'white',
     alignSelf: 'center',
     justifyContent: 'center',
   },
