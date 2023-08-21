@@ -49,7 +49,7 @@ const Diary = ({route}) => {
       colors={['#F36980', '#FEA76A']}
       style={[styles.safeAreaView]}>
       <SafeAreaView>
-        <TopBar name={'보이닷'} isSettings={true} />
+        <TopBar name={'보이닷'} isSettings={true} isWhite={true} />
         <View style={[styles.view]}>
           <TextComponent
             weight="bold"

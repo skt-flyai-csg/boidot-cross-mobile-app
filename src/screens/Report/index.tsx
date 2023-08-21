@@ -42,7 +42,7 @@ const Report = ({route}) => {
         styles.safeAreaView,
         {backgroundColor: colors.backgroundGeneral},
       ]}>
-      <TopBar name={'보이닷'} isSettings={true} />
+      <TopBar name={'보이닷'} isSettings={true} isWhite={false} />
       <View style={[styles.view]}>
         <TextComponent
           weight="bold"

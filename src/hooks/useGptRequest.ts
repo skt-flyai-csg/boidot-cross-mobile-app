@@ -82,7 +82,7 @@ export const useGptRequest = (
         handleMessage({
           type: 'bubble',
           message: `에이닷이 ${
-            requestObject === 'report' ? '보고서' : '일기'
+            request_object === 'report' ? '보고서' : '일기'
           }를 생성 중입니다. 조금만 기다려주세요....`,
           isMe: false,
         });

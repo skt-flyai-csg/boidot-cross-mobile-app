@@ -88,7 +88,9 @@ const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
           name="eye"
           size={24}
           color={
-            currentScreen === 'Calendar'
+            currentScreen === 'Calendar' ||
+            currentScreen === 'Diary' ||
+            currentScreen === 'Report'
               ? colors.textNavy
               : colors.textLightGrey
           }
@@ -99,7 +101,9 @@ const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
             styles.text,
             {
               color:
-                currentScreen === 'Calendar'
+                currentScreen === 'Calendar' ||
+                currentScreen === 'Diary' ||
+                currentScreen === 'Report'
                   ? colors.textNavy
                   : colors.textLightGrey,
             },

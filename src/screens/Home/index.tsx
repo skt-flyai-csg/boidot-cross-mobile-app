@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <SafeAreaView
       style={[styles.SafeAreaView, {backgroundColor: colors.backgroundHome}]}>
-      <TopBar name={'에이닷'} isSettings={false} />
+      <TopBar name={'에이닷'} isSettings={false} isWhite={false} />
       <View style={[styles.View, styles.justifyBetween]}>
         <TextComponent weight="heavy" style={[styles.text]}>
           날씨 맑고 미세먼지 괜찮아! 즐거운 하루 시작! 🌤️

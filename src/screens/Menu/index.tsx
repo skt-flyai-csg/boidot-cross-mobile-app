@@ -17,7 +17,7 @@ const Menu = () => {
         styles.SafeAreaView,
         {backgroundColor: colors.backgroundGeneral},
       ]}>
-      <TopBar name={'메뉴'} isSettings={true} />
+      <TopBar name={'메뉴'} isSettings={true} isWhite={false} />
       <ScrollView style={[styles.view]}>
         <View style={[styles.profile, {backgroundColor: colors.secondary}]}>
           <View style={[styles.row, styles.info]}>

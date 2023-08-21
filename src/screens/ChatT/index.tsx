@@ -13,7 +13,7 @@ const ChatT = () => {
         styles.SafeAreaView,
         {backgroundColor: colors.backgroundGeneral},
       ]}>
-      <TopBar name={'챗T'} isSettings={true} />
+      <TopBar name={'챗T'} isSettings={true} isWhite={false} />
       <View style={[styles.view]}>
         <View style={[styles.gap8, styles.alignCenter]}>
           <TextComponent weight="extraBold" style={[styles.title]}>
