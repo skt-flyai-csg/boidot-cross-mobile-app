@@ -1,7 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {Animated, StyleSheet, View} from 'react-native';
 
-const LoadingIndicator = () => {
+interface LoadingIndicator {
+  radius: number;
+  color: string;
+}
+
+const LoadingIndicator = ({radius, color}) => {
   const [progress, setProgress] = useState([
     new Animated.Value(0),
     new Animated.Value(0),
@@ -12,6 +17,13 @@ const LoadingIndicator = () => {
     animateCircles();
     return () => {};
   }, []);
+
+  const circleStyle = {
+    width: radius,
+    height: radius,
+    borderRadius: radius,
+    backgroundColor: color,
+  };
 
   const animateCircles = () => {
     const animations = progress.map(value => {
@@ -42,7 +54,7 @@ const LoadingIndicator = () => {
       return (
         <Animated.View
           key={index}
-          style={[styles.circle, {opacity, marginLeft: index === 0 ? 0 : 5}]}
+          style={[circleStyle, {opacity, marginLeft: index === 0 ? 0 : 5}]}
         />
       );
     });
@@ -56,12 +68,6 @@ export default LoadingIndicator;
 const styles = StyleSheet.create({
   indicatorContainer: {
     flexDirection: 'row',
-  },
-  circle: {
-    width: 5,
-    height: 5,
-    borderRadius: 5,
-    backgroundColor: 'white',
   },
   container: {
     flexDirection: 'row',
