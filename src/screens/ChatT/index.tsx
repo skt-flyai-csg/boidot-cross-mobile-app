@@ -60,8 +60,7 @@ const ChatT = () => {
               {backgroundColor: colors.primary},
             ]}
             underlayColor={colors.primaryHover}
-            activeOpacity={1}
-            onPress={() => console.log('')}>
+            activeOpacity={1}>
             <TextComponent
               weight="bold"
               style={[styles.buttonText, {color: colors.textWhite}]}>

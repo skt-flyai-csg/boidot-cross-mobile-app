@@ -28,7 +28,6 @@ export const useGptRequest = (
   }, [data]);
 
   async function getGptRequest(requestId: string) {
-    console.log('리포트 받아오는 중', requestId);
     try {
       const response = await axios.get(
         `${BASE_URL}/gpt-requests/${requestId}/`,
