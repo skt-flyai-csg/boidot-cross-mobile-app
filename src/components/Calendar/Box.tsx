@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {Dispatch, SetStateAction, useEffect, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
 import {Calendar} from 'react-native-calendars';
@@ -8,15 +8,17 @@ import {BASE_URL} from '@env';
 import {useAuth} from '../../contexts/AuthContext';
 import moment from 'moment';
 import CustomDay from './CustomDay';
-import LoadingIndicator from '../LoadingIndicator';
 
-const Box = () => {
+interface BoxProps {
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
+}
+
+const Box: React.FC<BoxProps> = ({setIsLoading}) => {
   const {theme} = useTheme();
   const {token} = useAuth();
   const [diaries, setDiaries] = useState();
   const [year, setYear] = useState(moment().year());
   const [month, setMonth] = useState(moment().month() + 1);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
