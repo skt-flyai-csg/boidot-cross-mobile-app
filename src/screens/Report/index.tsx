@@ -41,33 +41,28 @@ const Report = ({route}) => {
   }, [objectId]);
 
   return (
-    <SafeAreaView
-      style={[
-        styles.safeAreaView,
-        {backgroundColor: colors.backgroundGeneral},
-      ]}>
+    <SafeAreaView style={[styles.safeAreaView, {backgroundColor: '#F4F5F9'}]}>
       <TopBar name={'보이닷'} isSettings={true} isWhite={false} />
       <View style={[styles.view]}>
         {isLoading ? (
           <View style={[styles.justifyCenter]}>
-            <LoadingIndicator radius={10} color={colors.textLightGrey} />
+            <LoadingIndicator radius={10} color={'#9DA3B1'} />
           </View>
         ) : (
           <>
             <TextComponent
               weight="bold"
-              style={[styles.date, {color: colors.primary}]}>
+              style={[styles.date, {color: '#4264EC'}]}>
               {moment(report.createdTime).format('YYYY.MM.DD')}
             </TextComponent>
             <TextComponent weight="bold" style={[styles.title]}>
-              활동 보고서
+              우리 아이 하루 요약
             </TextComponent>
-            <View
-              style={[styles.scrollView, {backgroundColor: colors.textWhite}]}>
+            <View style={[styles.scrollView, {backgroundColor: '#FFFFFF'}]}>
               <ScrollView>
                 <TextComponent
                   weight="light"
-                  style={[styles.text, {color: colors.textGrey}]}>
+                  style={[styles.text, {color: '#585F6F'}]}>
                   {report.body}
                 </TextComponent>
               </ScrollView>
