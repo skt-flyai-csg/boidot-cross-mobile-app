@@ -8,6 +8,7 @@ import Box from '../../components/Calendar/Box';
 
 const Calendar = () => {
   const {theme} = useTheme();
+
   return (
     <SafeAreaView
       style={[styles.safeAreaView, {backgroundColor: theme.backgroundGeneral}]}>

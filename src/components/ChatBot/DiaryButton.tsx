@@ -20,9 +20,7 @@ const DiaryButton: React.FC<DiaryButtonProps> = ({diary}) => {
   const {close} = useBottomSheet();
   const handlePressButton = () => {
     close();
-    navigation.navigate('Diary', {objectId: diary.objectId} as {
-      objectId: string;
-    });
+    navigation.navigate('Diary', {objectId: diary.objectId});
   };
   return (
     <TouchableOpacity
