@@ -2,7 +2,7 @@ import React, {ReactNode} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
 import IconComponent from '../Icon';
-import TextComponent from '../Text';
+import TextComponent from '../TextComponent';
 
 interface NeedCardProps {
   iconType: 'calendar' | 'game' | 'tick';

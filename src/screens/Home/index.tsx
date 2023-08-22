@@ -4,7 +4,7 @@ import {useTheme} from '../../contexts/ThemeContext';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import TopBar from '../../components/TopBar';
 import Card from '../../components/Home/Card';
-import TextComponent from '../../components/Text';
+import TextComponent from '../../components/TextComponent';
 import RecentDiary from '../../components/Home/RecentDiary';
 
 const Home = () => {

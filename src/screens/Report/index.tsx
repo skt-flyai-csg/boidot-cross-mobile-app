@@ -4,7 +4,7 @@ import {useTheme} from '../../contexts/ThemeContext';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import TopBar from '../../components/TopBar';
 import data from '../../assets/samples/report.json';
-import TextComponent from '../../components/Text';
+import TextComponent from '../../components/TextComponent';
 import moment from 'moment';
 import {useAuth} from '../../contexts/AuthContext';
 import axios from 'axios';

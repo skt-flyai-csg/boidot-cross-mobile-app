@@ -5,4 +5,5 @@ export type {
   LoadingIndicatorProps,
   NavBarProps,
   TopBarProps,
+  TextComponentProps,
 } from './components';

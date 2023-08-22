@@ -3,7 +3,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import TopBar from '../../components/TopBar';
 import {Image, ScrollView, StyleSheet, View} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
-import TextComponent from '../../components/Text';
+import TextComponent from '../../components/TextComponent';
 import Icon from 'react-native-vector-icons/Feather';
 import IconComponent from '../../components/Icon';
 import NeedCard from '../../components/Main/NeedCard';

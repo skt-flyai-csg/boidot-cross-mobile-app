@@ -1,6 +1,6 @@
 import React from 'react';
-import {TextComponentProps} from './TextProps';
 import {Text, TextStyle} from 'react-native';
+import {TextComponentProps} from '../types';
 
 const TextComponent: React.FC<TextComponentProps> = ({
   weight,

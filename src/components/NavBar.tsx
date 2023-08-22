@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import TextComponent from './Text';
+import TextComponent from './TextComponent';
 import {useNavigation} from '@react-navigation/native';
 import {useTheme} from '../contexts/ThemeContext';
 import {DefaultScreenProps, NavBarProps} from '../types';

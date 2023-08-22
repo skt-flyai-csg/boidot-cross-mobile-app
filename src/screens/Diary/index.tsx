@@ -10,7 +10,7 @@ import {useTheme} from '../../contexts/ThemeContext';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import TopBar from '../../components/TopBar';
 import data from '../../assets/samples/diary.json';
-import TextComponent from '../../components/Text';
+import TextComponent from '../../components/TextComponent';
 import Icon from 'react-native-vector-icons/Feather';
 import moment from 'moment';
 import axios from 'axios';

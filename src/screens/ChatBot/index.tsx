@@ -10,7 +10,7 @@ import {
 import Input, {MessageProps} from '../../components/ChatBot/Input';
 import Footer from '../../components/ChatBot/Footer';
 import Bubble from '../../components/ChatBot/Bubble';
-import TextComponent from '../../components/Text';
+import TextComponent from '../../components/TextComponent';
 import {useTheme} from '../../contexts/ThemeContext';
 import moment from 'moment';
 import defaultData from '../../assets/samples/messages.json';

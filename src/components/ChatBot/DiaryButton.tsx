@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
-import TextComponent from '../Text';
+import TextComponent from '../TextComponent';
 import moment from 'moment';
 import {useNavigation} from '@react-navigation/native';
 import {useBottomSheet} from '@gorhom/bottom-sheet';

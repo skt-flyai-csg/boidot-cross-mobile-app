@@ -5,7 +5,7 @@ import {useTheme} from '../../contexts/ThemeContext';
 import Icon from 'react-native-vector-icons/Feather';
 import IconMat from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useVoiceRecognition} from '../../hooks/useVoiceRecognition';
-import TextComponent from '../Text';
+import TextComponent from '../TextComponent';
 interface FooterProps {
   handleButtonClick: () => void;
 }

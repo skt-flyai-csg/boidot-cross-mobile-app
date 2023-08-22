@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import data from '../../assets/samples/diary.json';
-import TextComponent from '../Text';
+import TextComponent from '../TextComponent';
 import {StyleSheet, View} from 'react-native';
 import moment from 'moment';
 import {useTheme} from '../../contexts/ThemeContext';

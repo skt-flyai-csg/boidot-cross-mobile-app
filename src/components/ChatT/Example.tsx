@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
 import Icon from 'react-native-vector-icons/Feather';
-import TextComponent from '../Text';
+import TextComponent from '../TextComponent';
 
 interface ExampleProps {
   name: string;

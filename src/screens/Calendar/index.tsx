@@ -2,7 +2,7 @@ import React from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import TopBar from '../../components/TopBar';
 import {useTheme} from '../../contexts/ThemeContext';
-import TextComponent from '../../components/Text';
+import TextComponent from '../../components/TextComponent';
 import IconComponent from '../../components/Icon';
 import Box from '../../components/Calendar/Box';
 

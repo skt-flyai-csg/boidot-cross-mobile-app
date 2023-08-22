@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
 import Icon from 'react-native-vector-icons/Feather';
-import TextComponent from '../Text/index';
+import TextComponent from '../TextComponent';
 
 interface CardProps {
   name: string;
