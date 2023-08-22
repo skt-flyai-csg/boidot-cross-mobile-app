@@ -4,13 +4,14 @@ import Icon from 'react-native-vector-icons/Feather';
 import TextComponent from './Text';
 import {useNavigation} from '@react-navigation/native';
 import {useTheme} from '../contexts/ThemeContext';
+import {DefaultScreenProps} from '../types';
 
 interface NavBarProps {
   handleOpenPress: () => void;
 }
 
 const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<DefaultScreenProps>();
   const {theme} = useTheme();
   const [currentScreen, setCurrentScreen] = useState('Home');
 
@@ -19,7 +20,7 @@ const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
       <TouchableOpacity
         style={[styles.icon]}
         onPress={() => {
-          navigation.navigate('Home' as never);
+          navigation.navigate('Home');
           setCurrentScreen('Home');
         }}>
         <Icon
@@ -44,7 +45,7 @@ const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
       <TouchableOpacity
         style={[styles.icon]}
         onPress={() => {
-          navigation.navigate('ChatT' as never);
+          navigation.navigate('ChatT');
           setCurrentScreen('ChatT');
         }}>
         <Icon
@@ -79,7 +80,7 @@ const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
       <TouchableOpacity
         style={[styles.icon]}
         onPress={() => {
-          navigation.navigate('Calendar' as never);
+          navigation.navigate('Calendar');
           setCurrentScreen('Calendar');
         }}>
         <Icon
@@ -112,7 +113,7 @@ const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
       <TouchableOpacity
         style={[styles.icon]}
         onPress={() => {
-          navigation.navigate('Menu' as never);
+          navigation.navigate('Menu');
           setCurrentScreen('Menu');
         }}>
         <Icon

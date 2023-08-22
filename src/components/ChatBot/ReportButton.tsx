@@ -6,6 +6,7 @@ import moment from 'moment';
 import {useNavigation} from '@react-navigation/native';
 import {useBottomSheet} from '@gorhom/bottom-sheet';
 import {useTheme} from '../../contexts/ThemeContext';
+import {ReportScreenProps} from '../../types';
 
 interface ReportButtonProps {
   report: {
@@ -15,7 +16,7 @@ interface ReportButtonProps {
 }
 
 const ReportButton: React.FC<ReportButtonProps> = ({report}) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<ReportScreenProps>();
   const {close} = useBottomSheet();
   const {theme} = useTheme();
   const handlePressButton = () => {

@@ -5,6 +5,7 @@ import TextComponent from '../Text';
 import moment from 'moment';
 import {useNavigation} from '@react-navigation/native';
 import {useBottomSheet} from '@gorhom/bottom-sheet';
+import {DiaryScreenProps} from '../../types';
 
 interface DiaryButtonProps {
   diary: {
@@ -15,11 +16,13 @@ interface DiaryButtonProps {
 
 const DiaryButton: React.FC<DiaryButtonProps> = ({diary}) => {
   const {theme} = useTheme();
-  const navigation = useNavigation();
+  const navigation = useNavigation<DiaryScreenProps>();
   const {close} = useBottomSheet();
   const handlePressButton = () => {
     close();
-    navigation.navigate('Diary', {objectId: diary.objectId});
+    navigation.navigate('Diary', {objectId: diary.objectId} as {
+      objectId: string;
+    });
   };
   return (
     <TouchableOpacity
