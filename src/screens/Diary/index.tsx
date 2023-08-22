@@ -13,11 +13,13 @@ import data from '../../assets/samples/diary.json';
 import TextComponent from '../../components/TextComponent';
 import Icon from 'react-native-vector-icons/Feather';
 import moment from 'moment';
-import axios from 'axios';
-import {BASE_URL} from '@env';
-import {useAuth} from '../../contexts/AuthContext';
 import LinearGradient from 'react-native-linear-gradient';
 import LoadingIndicator from '../../components/LoadingIndicator';
+import {useAuth} from '../../contexts/AuthContext';
+import axios from 'axios';
+import {BASE_URL} from '@env';
+import {useNavigation} from '@react-navigation/native';
+import {DefaultScreenProps} from '../../types';
 
 const Diary = ({route}) => {
   const {theme} = useTheme();
@@ -25,6 +27,7 @@ const Diary = ({route}) => {
   const {token} = useAuth();
   const {objectId} = route.params;
   const [isLoading, setIsLoading] = useState(true);
+  const navigation = useNavigation<DefaultScreenProps>();
 
   async function getDiary() {
     try {
@@ -82,7 +85,10 @@ const Diary = ({route}) => {
                 </ScrollView>
               </View>
               <TouchableOpacity
-                style={[styles.button, {backgroundColor: theme.diaryTop}]}>
+                style={[styles.button, {backgroundColor: theme.diaryTop}]}
+                onPress={() => {
+                  navigation.navigate('Calendar');
+                }}>
                 <Icon name="calendar" color={theme.white} size={20} />
                 <TextComponent
                   weight="bold"
