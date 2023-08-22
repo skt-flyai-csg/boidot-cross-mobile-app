@@ -4,13 +4,9 @@ import Icon from 'react-native-vector-icons/Feather';
 import TextComponent from './Text';
 import {useNavigation} from '@react-navigation/native';
 import {useTheme} from '../contexts/ThemeContext';
-import {DefaultScreenProps} from '../types';
+import {DefaultScreenProps, NavBarProps} from '../types';
 
-interface NavBarProps {
-  handleOpenPress: () => void;
-}
-
-const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
+const NavBar: React.FC<NavBarProps> = ({handleOpenPress}) => {
   const navigation = useNavigation<DefaultScreenProps>();
   const {theme} = useTheme();
   const [currentScreen, setCurrentScreen] = useState('Home');

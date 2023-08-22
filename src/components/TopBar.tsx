@@ -3,14 +3,9 @@ import {StyleSheet, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import TextComponent from './Text';
 import {useTheme} from '../contexts/ThemeContext';
+import {TopBarProps} from '../types';
 
-interface TopBarProps {
-  isSettings: boolean;
-  name: string;
-  isWhite: boolean;
-}
-
-const TopBar: FC<TopBarProps> = ({isSettings, name, isWhite}) => {
+const TopBar: React.FC<TopBarProps> = ({isSettings, name, isWhite}) => {
   const {theme} = useTheme();
   return (
     <View style={[styles.view]}>

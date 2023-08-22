@@ -1,12 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Animated, StyleSheet, View} from 'react-native';
+import {LoadingIndicatorProps} from '../types';
 
-interface LoadingIndicator {
-  radius: number;
-  color: string;
-}
-
-const LoadingIndicator = ({radius, color}) => {
+const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({radius, color}) => {
   const [progress, setProgress] = useState([
     new Animated.Value(0),
     new Animated.Value(0),
