@@ -1,29 +1,29 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 import {Calendar} from 'react-native-calendars';
-import {theme} from './calendarStyles';
+import {calendarTheme} from './calendarStyles';
 
 const Box = () => {
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   const customStyles = {
     container: {
-      backgroundColor: '#FEA76A',
+      backgroundColor: theme.diaryBottom,
       borderRadius: 0,
     },
     text: {
-      color: colors.textWhite,
+      color: theme.white,
     },
   };
   return (
-    <View style={[styles.box, {backgroundColor: colors.textWhite}]}>
+    <View style={[styles.box, {backgroundColor: theme.white}]}>
       <Calendar
         markingType={'custom'}
         markedDates={{
           '2023-08-12': {customStyles: customStyles},
           '2023-08-16': {customStyles: customStyles},
         }}
-        theme={theme}
+        theme={calendarTheme}
       />
     </View>
   );

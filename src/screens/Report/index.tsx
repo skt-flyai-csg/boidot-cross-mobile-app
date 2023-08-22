@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import TopBar from '../../components/TopBar';
 import data from '../../assets/samples/report.json';
@@ -12,7 +12,7 @@ import {BASE_URL} from '@env';
 import LoadingIndicator from '../../components/LoadingIndicator';
 
 const Report = ({route}) => {
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   const [report, setReport] = useState(data);
   const {token} = useAuth();
   const {objectId} = route.params;
@@ -41,28 +41,29 @@ const Report = ({route}) => {
   }, [objectId]);
 
   return (
-    <SafeAreaView style={[styles.safeAreaView, {backgroundColor: '#F4F5F9'}]}>
+    <SafeAreaView
+      style={[styles.safeAreaView, {backgroundColor: theme.backgroundGeneral}]}>
       <TopBar name={'보이닷'} isSettings={true} isWhite={false} />
       <View style={[styles.view]}>
         {isLoading ? (
           <View style={[styles.justifyCenter]}>
-            <LoadingIndicator radius={10} color={'#9DA3B1'} />
+            <LoadingIndicator radius={10} color={theme.textLightGrey} />
           </View>
         ) : (
           <>
             <TextComponent
               weight="bold"
-              style={[styles.date, {color: '#4264EC'}]}>
+              style={[styles.date, {color: theme.primary}]}>
               {moment(report.createdTime).format('YYYY.MM.DD')}
             </TextComponent>
             <TextComponent weight="bold" style={[styles.title]}>
               우리 아이 하루 요약
             </TextComponent>
-            <View style={[styles.scrollView, {backgroundColor: '#FFFFFF'}]}>
+            <View style={[styles.scrollView, {backgroundColor: theme.white}]}>
               <ScrollView>
                 <TextComponent
                   weight="light"
-                  style={[styles.text, {color: '#585F6F'}]}>
+                  style={[styles.text, {color: theme.textGrey}]}>
                   {report.body}
                 </TextComponent>
               </ScrollView>

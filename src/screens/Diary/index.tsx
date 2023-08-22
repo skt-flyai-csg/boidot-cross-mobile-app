@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import TopBar from '../../components/TopBar';
 import data from '../../assets/samples/diary.json';
@@ -20,7 +20,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import LoadingIndicator from '../../components/LoadingIndicator';
 
 const Diary = ({route}) => {
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   const [diary, setDiary] = useState(data);
   const {token} = useAuth();
   const {objectId} = route.params;
@@ -50,25 +50,25 @@ const Diary = ({route}) => {
 
   return (
     <LinearGradient
-      colors={['#F36980', '#FEA76A']}
+      colors={[theme.diaryTop, theme.diaryBottom]}
       style={[styles.safeAreaView]}>
       <SafeAreaView>
         <TopBar name={'보이닷'} isSettings={true} isWhite={true} />
         <View style={[styles.view]}>
           {isLoading ? (
             <View style={[styles.justifyCenter]}>
-              <LoadingIndicator radius={10} color={colors.textWhite} />
+              <LoadingIndicator radius={10} color={theme.white} />
             </View>
           ) : (
             <>
               <TextComponent
                 weight="bold"
-                style={[styles.date, {color: colors.textWhite}]}>
+                style={[styles.date, {color: theme.white}]}>
                 {moment(diary.createdTime).format('YYYY.MM.DD')}
               </TextComponent>
               <TextComponent
                 weight="extraBold"
-                style={[styles.title, {color: colors.textWhite}]}>
+                style={[styles.title, {color: theme.white}]}>
                 강아지와 놀았어요!
               </TextComponent>
               <View style={[styles.scrollView]}>
@@ -78,17 +78,17 @@ const Diary = ({route}) => {
                   />
                   <TextComponent
                     weight="light"
-                    style={[styles.text, {color: colors.textNormal}]}>
+                    style={[styles.text, {color: theme.text}]}>
                     {diary.body}
                   </TextComponent>
                 </ScrollView>
               </View>
               <TouchableOpacity
-                style={[styles.button, {backgroundColor: '#F36980'}]}>
-                <Icon name="calendar" color={colors.textWhite} size={20} />
+                style={[styles.button, {backgroundColor: theme.diaryTop}]}>
+                <Icon name="calendar" color={theme.white} size={20} />
                 <TextComponent
                   weight="bold"
-                  style={[styles.buttonText, {color: colors.textWhite}]}>
+                  style={[styles.buttonText, {color: theme.white}]}>
                   지난 일기 보러가기
                 </TextComponent>
               </TouchableOpacity>

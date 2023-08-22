@@ -1,7 +1,7 @@
 import React, {Dispatch, SetStateAction, RefObject, useState} from 'react';
 import {StyleSheet, TextInput, TouchableOpacity, View} from 'react-native';
 import {useKeyboardHeight} from '../../hooks/useKeyboardHeight';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 import Icon from 'react-native-vector-icons/Feather';
 
 export interface MessageProps {
@@ -28,7 +28,7 @@ const Input: React.FC<InputProps> = ({
   handleSubmit,
 }) => {
   const keyboardHeight = useKeyboardHeight();
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   return (
     <View
       style={[
@@ -37,31 +37,30 @@ const Input: React.FC<InputProps> = ({
         {marginBottom: keyboardHeight},
       ]}>
       <TouchableOpacity
-        style={[styles.button, {backgroundColor: colors.backgroundGeneral}]}>
-        <Icon name="plus" size={28} color={colors.textNavy} />
+        style={[styles.button, {backgroundColor: theme.backgroundGeneral}]}>
+        <Icon name="plus" size={28} color={theme.textNavy} />
       </TouchableOpacity>
       <TextInput
         ref={inputRef}
         placeholder="메시지 입력"
-        placeholderTextColor={colors.textLightGrey}
-        style={[styles.textInput, {backgroundColor: colors.textWhite}]}
+        placeholderTextColor={theme.textGrey}
+        style={[styles.textInput, {backgroundColor: theme.white}]}
         underlineColorAndroid="transparent"
         onChangeText={t => setText(t)}
       />
       <TouchableOpacity
-        style={[styles.button, {backgroundColor: colors.backgroundGeneral}]}>
-        <Icon name="mic" size={24} color={colors.primary} />
+        style={[styles.button, {backgroundColor: theme.backgroundGeneral}]}>
+        <Icon name="mic" size={24} color={theme.primary} />
       </TouchableOpacity>
       <TouchableOpacity
         onPress={handleSubmit}
         style={[
           styles.button,
           {
-            backgroundColor:
-              text === '' ? colors.backgroundGrey : colors.primary,
+            backgroundColor: text === '' ? theme.backgroundGrey : theme.primary,
           },
         ]}>
-        <Icon name="arrow-up" size={28} color={colors.textWhite} />
+        <Icon name="arrow-up" size={28} color={theme.white} />
       </TouchableOpacity>
     </View>
   );

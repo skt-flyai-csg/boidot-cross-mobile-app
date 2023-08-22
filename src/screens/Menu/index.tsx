@@ -2,7 +2,7 @@ import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import TopBar from '../../components/TopBar';
 import {Image, ScrollView, StyleSheet, View} from 'react-native';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 import TextComponent from '../../components/Text';
 import Icon from 'react-native-vector-icons/Feather';
 import IconComponent from '../../components/Icon';
@@ -10,16 +10,13 @@ import NeedCard from '../../components/Main/NeedCard';
 import Box from '../../components/Main/Box';
 
 const Menu = () => {
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   return (
     <SafeAreaView
-      style={[
-        styles.SafeAreaView,
-        {backgroundColor: colors.backgroundGeneral},
-      ]}>
+      style={[styles.SafeAreaView, {backgroundColor: theme.backgroundGeneral}]}>
       <TopBar name={'메뉴'} isSettings={true} isWhite={false} />
       <ScrollView style={[styles.view]}>
-        <View style={[styles.profile, {backgroundColor: colors.secondary}]}>
+        <View style={[styles.profile, {backgroundColor: theme.secondary}]}>
           <View style={[styles.row, styles.info]}>
             <Image
               style={[styles.img]}
@@ -29,15 +26,15 @@ const Menu = () => {
               <View style={[styles.row, styles.gap12]}>
                 <TextComponent
                   weight="extraBold"
-                  style={[{color: colors.textWhite}]}>
+                  style={[{color: theme.white}]}>
                   에이닷
                 </TextComponent>
                 <View
-                  style={[styles.detail, {backgroundColor: colors.textGrey}]}>
+                  style={[styles.detail, {backgroundColor: theme.textGrey}]}>
                   <Icon
                     name="chevron-right"
                     size={16}
-                    color={colors.textLightGrey}
+                    color={theme.textLightGrey}
                   />
                 </View>
               </View>
@@ -46,7 +43,7 @@ const Menu = () => {
                   <IconComponent type="star" width={14} height={16} />
                   <TextComponent
                     weight="bold"
-                    style={[styles.statusText, {color: colors.textWhite}]}>
+                    style={[styles.statusText, {color: theme.white}]}>
                     0
                   </TextComponent>
                 </View>
@@ -54,22 +51,20 @@ const Menu = () => {
                   <IconComponent type="heart" width={20} height={16} />
                   <TextComponent
                     weight="bold"
-                    style={[styles.statusText, {color: colors.textWhite}]}>
+                    style={[styles.statusText, {color: theme.white}]}>
                     3,730
                   </TextComponent>
                 </View>
               </View>
             </View>
           </View>
-          <View
-            style={[styles.line, {backgroundColor: colors.textLightGrey}]}
-          />
+          <View style={[styles.line, {backgroundColor: theme.textLightGrey}]} />
           <View style={[styles.row, styles.bottom]}>
             <View style={[styles.row, styles.val]}>
               <IconComponent type="notification" width={24} height={24} />
               <TextComponent
                 weight="regular"
-                style={[styles.bottomText, {color: colors.textWhite}]}>
+                style={[styles.bottomText, {color: theme.white}]}>
                 퀘스트
               </TextComponent>
             </View>
@@ -77,22 +72,22 @@ const Menu = () => {
               <IconComponent type="buy" width={24} height={24} />
               <TextComponent
                 weight="regular"
-                style={[styles.bottomText, {color: colors.textWhite}]}>
+                style={[styles.bottomText, {color: theme.white}]}>
                 캐릭터 스토어
               </TextComponent>
             </View>
           </View>
         </View>
-        <View style={[styles.notice, {backgroundColor: colors.backgroundGrey}]}>
+        <View style={[styles.notice, {backgroundColor: theme.backgroundGrey}]}>
           <IconComponent type="volume" width={32} height={24} />
-          <TextComponent weight="bold" style={[{color: colors.textGrey}]}>
+          <TextComponent weight="bold" style={[{color: theme.textGrey}]}>
             [업데이트] A. v2.0.0 업데이트 안내
           </TextComponent>
         </View>
         <View style={[styles.need]}>
           <TextComponent
             weight="heavy"
-            style={[styles.needText, {color: colors.textNavy}]}>
+            style={[styles.needText, {color: theme.textNavy}]}>
             지금 필요한 기능
           </TextComponent>
           <View style={[styles.row, styles.justifyBetween]}>
@@ -110,7 +105,7 @@ const Menu = () => {
         <View style={[styles.help]}>
           <TextComponent
             weight="heavy"
-            style={[styles.needText, {color: colors.textNavy}]}>
+            style={[styles.needText, {color: theme.textNavy}]}>
             일상을 돕는 기능
           </TextComponent>
           <View>

@@ -11,7 +11,7 @@ import Input, {MessageProps} from '../../components/ChatBot/Input';
 import Footer from '../../components/ChatBot/Footer';
 import Bubble from '../../components/ChatBot/Bubble';
 import TextComponent from '../../components/Text';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 import moment from 'moment';
 import defaultData from '../../assets/samples/messages.json';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
@@ -28,7 +28,7 @@ const ChatBot = () => {
   const date = moment().format('YYYY.MM.DD');
   const flatListRef = useRef(null);
   const [messages, setMessages] = useState(defaultData.messages);
-  const {colors} = useTheme();
+  const {theme} = useTheme();
 
   const handleMessage = useCallback(
     ({
@@ -130,20 +130,18 @@ const ChatBot = () => {
     <TouchableWithoutFeedback onPress={handleDismiss}>
       <View style={styles.view}>
         <View style={styles.messages}>
-          <View
-            style={[styles.noticeBox, {backgroundColor: colors.backgroundBox}]}>
+          <View style={[styles.noticeBox, {backgroundColor: theme.box}]}>
             <TextComponent
               weight="light"
-              style={[styles.noticeText, {color: colors.textWhite}]}>
+              style={[styles.noticeText, {color: theme.white}]}>
               모든 대화는 인공지능 알고리즘에 의해 자동 생성되는 것으로 사실과
               다를 수 있어요.
             </TextComponent>
           </View>
-          <View
-            style={[styles.dateBox, {backgroundColor: colors.backgroundBox}]}>
+          <View style={[styles.dateBox, {backgroundColor: theme.box}]}>
             <TextComponent
               weight="light"
-              style={[styles.dateText, {color: colors.textLightGrey}]}>
+              style={[styles.dateText, {color: theme.textLightGrey}]}>
               {date}
             </TextComponent>
           </View>

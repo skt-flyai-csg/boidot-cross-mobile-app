@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, ScrollView, StyleSheet, View} from 'react-native';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import TopBar from '../../components/TopBar';
 import Card from '../../components/Home/Card';
@@ -8,10 +8,10 @@ import TextComponent from '../../components/Text';
 import RecentDiary from '../../components/Home/RecentDiary';
 
 const Home = () => {
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   return (
     <SafeAreaView
-      style={[styles.SafeAreaView, {backgroundColor: colors.backgroundHome}]}>
+      style={[styles.SafeAreaView, {backgroundColor: theme.backgroundHome}]}>
       <TopBar name={'에이닷'} isSettings={false} isWhite={false} />
       <View style={[styles.View, styles.justifyBetween]}>
         <TextComponent weight="heavy" style={[styles.text]}>
@@ -23,10 +23,7 @@ const Home = () => {
         />
       </View>
       <ScrollView
-        style={[
-          styles.ScrollView,
-          {backgroundColor: colors.backgroundGeneral},
-        ]}>
+        style={[styles.ScrollView, {backgroundColor: theme.backgroundGeneral}]}>
         <Card name="오늘 날씨" isDetail={true}>
           <Image
             style={[styles.weather]}

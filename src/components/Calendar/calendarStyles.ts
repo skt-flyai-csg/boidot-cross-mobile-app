@@ -20,11 +20,11 @@ interface calendarStyleProps {
   textDayHeaderFontSize: number;
 }
 
-export const theme: calendarStyleProps = {
-  backgroundColor: '#ffffff',
-  calendarBackground: '#ffffff',
+export const calendarTheme: calendarStyleProps = {
+  backgroundColor: '#FFFFFF',
+  calendarBackground: '#FFFFFF',
   selectedDayBackgroundColor: '#FEA76A',
-  selectedDayTextColor: '#ffffff',
+  selectedDayTextColor: '#FFFFFF',
   todayTextColor: '#F36980',
   dayTextColor: '#262D33',
   arrowColor: '#3A4767',

@@ -3,21 +3,21 @@ import data from '../../assets/samples/diary.json';
 import TextComponent from '../Text';
 import {StyleSheet, View} from 'react-native';
 import moment from 'moment';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 
 const RecentDiary = () => {
   const [diary, setDiary] = useState(data);
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   return (
     <View>
       <TextComponent
         weight="regular"
-        style={[styles.date, {color: colors.primary}]}>
+        style={[styles.date, {color: theme.primary}]}>
         [{moment(diary.createdTime).format('YYYY.MM.DD')}]
       </TextComponent>
       <TextComponent
         weight="light"
-        style={[styles.body, {color: colors.textGrey}]}
+        style={[styles.body, {color: theme.textGrey}]}
         numberOfLines={5}
         ellipsizeMode="tail">
         {diary.body}

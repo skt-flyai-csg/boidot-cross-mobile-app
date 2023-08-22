@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {Text, useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 import Icon from 'react-native-vector-icons/Feather';
 import TextComponent from '../Text';
 
@@ -11,13 +11,13 @@ interface ExampleProps {
 }
 
 const Example: React.FC<ExampleProps> = ({name, title, example}) => {
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   return (
     <View style={[styles.alignCenter, styles.justifyCenter, styles.gap14]}>
-      <Icon name={name} color={colors.textNavy} size={24} />
+      <Icon name={name} color={theme.textNavy} size={24} />
       <TextComponent
         weight="heavy"
-        style={[styles.title, {color: colors.textNavy}]}>
+        style={[styles.title, {color: theme.textNavy}]}>
         {title}
       </TextComponent>
       <View
@@ -25,11 +25,11 @@ const Example: React.FC<ExampleProps> = ({name, title, example}) => {
           styles.alignCenter,
           styles.justifyCenter,
           styles.box,
-          {backgroundColor: colors.backgroundGeneral},
+          {backgroundColor: theme.backgroundGeneral},
         ]}>
         <TextComponent
           weight="bold"
-          style={[styles.example, {color: colors.textGrey}]}>
+          style={[styles.example, {color: theme.textGrey}]}>
           {example}
         </TextComponent>
       </View>

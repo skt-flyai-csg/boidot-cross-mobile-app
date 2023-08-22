@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 import TextComponent from '../Text';
 import moment from 'moment';
 import {useNavigation} from '@react-navigation/native';
@@ -14,7 +14,7 @@ interface DiaryButtonProps {
 }
 
 const DiaryButton: React.FC<DiaryButtonProps> = ({diary}) => {
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   const navigation = useNavigation();
   const {close} = useBottomSheet();
   const handlePressButton = () => {
@@ -23,9 +23,9 @@ const DiaryButton: React.FC<DiaryButtonProps> = ({diary}) => {
   };
   return (
     <TouchableOpacity
-      style={[styles.button, {backgroundColor: '#F36980'}]}
+      style={[styles.button, {backgroundColor: theme.diaryTop}]}
       onPress={handlePressButton}>
-      <TextComponent weight="bold" style={[{color: colors.textWhite}]}>
+      <TextComponent weight="bold" style={[{color: theme.white}]}>
         {moment(diary.createdTime).format('YYYY.MM.DD')}&nbsp; 우리 아이 일기
       </TextComponent>
     </TouchableOpacity>

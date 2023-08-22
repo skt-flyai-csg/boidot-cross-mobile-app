@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {StyleSheet, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import TextComponent from './Text';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../contexts/ThemeContext';
 
 interface TopBarProps {
   isSettings: boolean;
@@ -11,15 +11,12 @@ interface TopBarProps {
 }
 
 const TopBar: FC<TopBarProps> = ({isSettings, name, isWhite}) => {
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   return (
     <View style={[styles.view]}>
       <TextComponent
         weight="heavy"
-        style={[
-          styles.text,
-          {color: isWhite ? colors.textWhite : colors.textNavy},
-        ]}>
+        style={[styles.text, {color: isWhite ? theme.white : theme.textNavy}]}>
         {name}
       </TextComponent>
       {isSettings && (
@@ -27,12 +24,12 @@ const TopBar: FC<TopBarProps> = ({isSettings, name, isWhite}) => {
           <Icon
             name="bell"
             size={24}
-            color={isWhite ? colors.textWhite : colors.textNavy}
+            color={isWhite ? theme.white : theme.textNavy}
           />
           <Icon
             name="settings"
             size={24}
-            color={isWhite ? colors.textWhite : colors.textNavy}
+            color={isWhite ? theme.white : theme.textNavy}
           />
         </View>
       )}

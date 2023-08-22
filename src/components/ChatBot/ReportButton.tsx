@@ -5,7 +5,7 @@ import TextComponent from '../Text';
 import moment from 'moment';
 import {useNavigation} from '@react-navigation/native';
 import {useBottomSheet} from '@gorhom/bottom-sheet';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 
 interface ReportButtonProps {
   report: {
@@ -17,18 +17,16 @@ interface ReportButtonProps {
 const ReportButton: React.FC<ReportButtonProps> = ({report}) => {
   const navigation = useNavigation();
   const {close} = useBottomSheet();
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   const handlePressButton = () => {
     close();
     navigation.navigate('Report', {objectId: report.objectId});
   };
   return (
     <TouchableOpacity
-      style={[styles.button, {backgroundColor: colors.backgroundHome}]}
+      style={[styles.button, {backgroundColor: theme.backgroundHome}]}
       onPress={handlePressButton}>
-      <TextComponent
-        weight="bold"
-        style={[styles.text, {color: colors.textNormal}]}>
+      <TextComponent weight="bold" style={[styles.text, {color: theme.text}]}>
         {moment(report.createdTime).format('YYYY.MM.DD')} 하루 요약
       </TextComponent>
     </TouchableOpacity>

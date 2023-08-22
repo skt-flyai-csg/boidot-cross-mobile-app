@@ -1,24 +1,21 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, TouchableHighlight, View} from 'react-native';
 import TopBar from '../../components/TopBar';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 import TextComponent from '../../components/Text';
 import Example from '../../components/ChatT/Example';
 
 const ChatT = () => {
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   return (
     <SafeAreaView
-      style={[
-        styles.SafeAreaView,
-        {backgroundColor: colors.backgroundGeneral},
-      ]}>
+      style={[styles.SafeAreaView, {backgroundColor: theme.backgroundGeneral}]}>
       <TopBar name={'챗T'} isSettings={true} isWhite={false} />
       <View style={[styles.view]}>
         <View style={[styles.gap8, styles.alignCenter]}>
           <TextComponent weight="extraBold" style={[styles.title]}>
             언제든지, 끊임없이, 빠르게 무료로
-            <TextComponent weight="heavy" style={[{color: colors.primary}]}>
+            <TextComponent weight="heavy" style={[{color: theme.primary}]}>
               ChatGPT
             </TextComponent>
             &nbsp;서비스를 사용해보세요!
@@ -33,7 +30,7 @@ const ChatT = () => {
             styles.justifyCenter,
             styles.box,
             styles.gap18,
-            {backgroundColor: colors.textWhite},
+            {backgroundColor: theme.white},
           ]}>
           <Example
             name="message-circle"
@@ -57,19 +54,19 @@ const ChatT = () => {
               styles.button,
               styles.alignCenter,
               styles.justifyCenter,
-              {backgroundColor: colors.primary},
+              {backgroundColor: theme.primary},
             ]}
-            underlayColor={colors.primaryHover}
+            underlayColor={theme.primaryHover}
             activeOpacity={1}>
             <TextComponent
               weight="bold"
-              style={[styles.buttonText, {color: colors.textWhite}]}>
+              style={[styles.buttonText, {color: theme.white}]}>
               시작하기
             </TextComponent>
           </TouchableHighlight>
           <TextComponent
             weight="light"
-            style={[styles.desc, {color: colors.textLightGrey}]}>
+            style={[styles.desc, {color: theme.textLightGrey}]}>
             길 안내, 날씨 같은 실시간 질문이나 음악 재생과 같은 요청은 에이닷
             캐릭터에 물어봐주세요!
           </TextComponent>

@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 import Icon from 'react-native-vector-icons/Feather';
 import TextComponent from '../Text/index';
 
@@ -11,23 +11,23 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({name, isDetail, children}) => {
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   return (
-    <View style={[styles.view, {backgroundColor: colors.textWhite}]}>
+    <View style={[styles.view, {backgroundColor: theme.white}]}>
       <View style={[styles.flex]}>
         <TextComponent
           weight="bold"
-          style={[styles.text, {color: colors.textNavy}]}>
+          style={[styles.text, {color: theme.textNavy}]}>
           {name}
         </TextComponent>
         {isDetail && (
           <View style={[styles.detail]}>
             <TextComponent
               weight="bold"
-              style={[styles.detailText, {color: colors.textLightGrey}]}>
+              style={[styles.detailText, {color: theme.textLightGrey}]}>
               자세히 보기
             </TextComponent>
-            <Icon name="chevron-right" size={16} color={colors.textLightGrey} />
+            <Icon name="chevron-right" size={16} color={theme.textLightGrey} />
           </View>
         )}
       </View>

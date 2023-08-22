@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import LoadingIndicator from '../LoadingIndicator';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 
 interface ListFooterProps {
   isLoading: boolean;
@@ -9,18 +9,18 @@ interface ListFooterProps {
 }
 
 const ListFooter: React.FC<ListFooterProps> = ({isLoading}) => {
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   return isLoading ? (
     <View
       style={[
         styles.indicatorContainer,
         styles.bubble,
         {
-          backgroundColor: colors.secondary,
+          backgroundColor: theme.secondary,
           marginRight: 'auto',
         },
       ]}>
-      <LoadingIndicator radius={5} color={colors.textWhite} />
+      <LoadingIndicator radius={5} color={theme.white} />
     </View>
   ) : (
     <View style={[styles.listFooter]} />

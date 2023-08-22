@@ -1,6 +1,6 @@
 import React, {ReactNode} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 import IconComponent from '../Icon';
 import TextComponent from '../Text';
 
@@ -11,18 +11,18 @@ interface NeedCardProps {
 }
 
 const NeedCard: React.FC<NeedCardProps> = ({iconType, title, children}) => {
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   return (
-    <View style={[styles.cardView, {backgroundColor: colors.textWhite}]}>
+    <View style={[styles.cardView, {backgroundColor: theme.white}]}>
       <IconComponent type={iconType} width={48} height={48} />
       <TextComponent
         weight="bold"
-        style={[styles.titleText, {color: colors.textNavy}]}>
+        style={[styles.titleText, {color: theme.textNavy}]}>
         {title}
       </TextComponent>
       <TextComponent
         weight="light"
-        style={[styles.descText, {color: colors.textGrey}]}>
+        style={[styles.descText, {color: theme.textGrey}]}>
         {children}
       </TextComponent>
     </View>

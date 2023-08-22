@@ -1,6 +1,6 @@
 import React, {ReactNode} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 import IconComponent from '../Icon';
 import TextComponent from '../Text';
 
@@ -10,19 +10,19 @@ interface BoxProps {
   children: ReactNode;
 }
 const Box: React.FC<BoxProps> = ({iconType, title, children}) => {
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   return (
-    <View style={[styles.box, {backgroundColor: colors.textWhite}]}>
+    <View style={[styles.box, {backgroundColor: theme.white}]}>
       <IconComponent type={iconType} width={28} height={28} />
       <View style={[styles.textBox]}>
         <TextComponent
           weight="bold"
-          style={[styles.titleText, {color: colors.textNavy}]}>
+          style={[styles.titleText, {color: theme.textNavy}]}>
           {title}
         </TextComponent>
         <TextComponent
           weight="light"
-          style={[styles.descText, {color: colors.textGrey}]}>
+          style={[styles.descText, {color: theme.textGrey}]}>
           {children}
         </TextComponent>
       </View>

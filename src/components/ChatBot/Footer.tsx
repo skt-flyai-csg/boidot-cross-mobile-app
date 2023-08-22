@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {useTheme} from 'react-native-paper';
+import {useTheme} from '../../contexts/ThemeContext';
 import Icon from 'react-native-vector-icons/Feather';
 import IconMat from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useVoiceRecognition} from '../../hooks/useVoiceRecognition';
@@ -11,7 +11,7 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({handleButtonClick}) => {
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   const {results, startRecognizing, stopRecognizing} = useVoiceRecognition();
   const [recognitionRunning, setRecognitionRunning] = useState(false);
   const [isResultAdded, setIsResultAdded] = useState(false);
@@ -44,18 +44,18 @@ const Footer: React.FC<FooterProps> = ({handleButtonClick}) => {
         </TextComponent>
       )}
       <LinearGradient
-        colors={['#00000000', colors.textNormal]}
+        colors={['#00000000', theme.backgroundChat]}
         style={styles.footer}>
         <TouchableOpacity>
-          <Icon name="user" size={24} color={colors.textWhite} />
+          <Icon name="user" size={24} color={theme.white} />
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.button, {backgroundColor: colors.secondary}]}
+          style={[styles.button, {backgroundColor: theme.secondary}]}
           onPress={onStart}>
-          <Icon name="mic" size={24} color={colors.textWhite} />
+          <Icon name="mic" size={24} color={theme.white} />
         </TouchableOpacity>
         <TouchableOpacity onPress={handleButtonClick}>
-          <IconMat name="keyboard" size={24} color={colors.textWhite} />
+          <IconMat name="keyboard" size={24} color={theme.white} />
         </TouchableOpacity>
       </LinearGradient>
     </View>

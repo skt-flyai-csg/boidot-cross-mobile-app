@@ -1,9 +1,9 @@
 import React, {FC, useState} from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
-import {useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Feather';
 import TextComponent from './Text';
 import {useNavigation} from '@react-navigation/native';
+import {useTheme} from '../contexts/ThemeContext';
 
 interface NavBarProps {
   handleOpenPress: () => void;
@@ -11,11 +11,11 @@ interface NavBarProps {
 
 const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
   const navigation = useNavigation();
-  const {colors} = useTheme();
+  const {theme} = useTheme();
   const [currentScreen, setCurrentScreen] = useState('Home');
 
   return (
-    <View style={[styles.view, {backgroundColor: colors.textWhite}]}>
+    <View style={[styles.view, {backgroundColor: theme.white}]}>
       <TouchableOpacity
         style={[styles.icon]}
         onPress={() => {
@@ -26,7 +26,7 @@ const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
           name="home"
           size={24}
           color={
-            currentScreen === 'Home' ? colors.textNavy : colors.textLightGrey
+            currentScreen === 'Home' ? theme.textNavy : theme.textLightGrey
           }
         />
         <TextComponent
@@ -35,9 +35,7 @@ const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
             styles.text,
             {
               color:
-                currentScreen === 'Home'
-                  ? colors.textNavy
-                  : colors.textLightGrey,
+                currentScreen === 'Home' ? theme.textNavy : theme.textLightGrey,
             },
           ]}>
           홈
@@ -53,7 +51,7 @@ const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
           name="message-square"
           size={24}
           color={
-            currentScreen === 'ChatT' ? colors.textNavy : colors.textLightGrey
+            currentScreen === 'ChatT' ? theme.textNavy : theme.textLightGrey
           }
         />
         <TextComponent
@@ -63,8 +61,8 @@ const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
             {
               color:
                 currentScreen === 'ChatT'
-                  ? colors.textNavy
-                  : colors.textLightGrey,
+                  ? theme.textNavy
+                  : theme.textLightGrey,
             },
           ]}>
           챗T
@@ -72,7 +70,7 @@ const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={handleOpenPress}
-        style={[styles.me, {backgroundColor: colors.backgroundHome}]}>
+        style={[styles.me, {backgroundColor: theme.backgroundHome}]}>
         <Image
           style={[styles.me]}
           source={require('../assets/images/myImage.png')}
@@ -91,8 +89,8 @@ const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
             currentScreen === 'Calendar' ||
             currentScreen === 'Diary' ||
             currentScreen === 'Report'
-              ? colors.textNavy
-              : colors.textLightGrey
+              ? theme.textNavy
+              : theme.textLightGrey
           }
         />
         <TextComponent
@@ -104,8 +102,8 @@ const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
                 currentScreen === 'Calendar' ||
                 currentScreen === 'Diary' ||
                 currentScreen === 'Report'
-                  ? colors.textNavy
-                  : colors.textLightGrey,
+                  ? theme.textNavy
+                  : theme.textLightGrey,
             },
           ]}>
           보이닷
@@ -121,7 +119,7 @@ const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
           name="menu"
           size={24}
           color={
-            currentScreen === 'Menu' ? colors.textNavy : colors.textLightGrey
+            currentScreen === 'Menu' ? theme.textNavy : theme.textLightGrey
           }
         />
         <TextComponent
@@ -130,9 +128,7 @@ const NavBar: FC<NavBarProps> = ({handleOpenPress}) => {
             styles.text,
             {
               color:
-                currentScreen === 'Menu'
-                  ? colors.textNavy
-                  : colors.textLightGrey,
+                currentScreen === 'Menu' ? theme.textNavy : theme.textLightGrey,
             },
           ]}>
           메뉴
