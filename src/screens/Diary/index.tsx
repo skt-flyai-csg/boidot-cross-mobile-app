@@ -69,13 +69,11 @@ const Diary = ({route}) => {
               <TextComponent
                 weight="extraBold"
                 style={[styles.title, {color: theme.white}]}>
-                강아지와 놀았어요!
+                우리 아이 일기
               </TextComponent>
               <View style={[styles.scrollView]}>
                 <ScrollView contentContainerStyle={[styles.alignCenter]}>
-                  <Image
-                    source={require('../../assets/images/picture_diary.png')}
-                  />
+                  <Image source={{uri: diary.image}} style={[styles.image]} />
                   <TextComponent
                     weight="light"
                     style={[styles.text, {color: theme.text}]}>
@@ -103,9 +101,15 @@ const Diary = ({route}) => {
 export default Diary;
 
 const styles = StyleSheet.create({
+  image: {
+    width: 200,
+    height: 200,
+    objectFit: 'contain',
+    borderRadius: 20,
+  },
   alignCenter: {
     alignItems: 'center',
-    gap: 12,
+    gap: 20,
   },
   justifyCenter: {
     marginTop: 280,
