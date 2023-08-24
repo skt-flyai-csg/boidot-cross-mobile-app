@@ -10,6 +10,7 @@ import {useAuth} from '../../contexts/AuthContext';
 import axios from 'axios';
 import {BASE_URL} from '@env';
 import LoadingIndicator from '../../components/LoadingIndicator';
+import ImageSlider from '../../components/Report/ImageSlider';
 
 const Report = ({route}) => {
   const {theme} = useTheme();
@@ -61,6 +62,7 @@ const Report = ({route}) => {
             </TextComponent>
             <View style={[styles.scrollView, {backgroundColor: theme.white}]}>
               <ScrollView>
+                <ImageSlider />
                 <TextComponent
                   weight="light"
                   style={[styles.text, {color: theme.textGrey}]}>
