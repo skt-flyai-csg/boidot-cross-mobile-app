@@ -147,8 +147,8 @@ const styles = StyleSheet.create({
   },
   text: {
     paddingHorizontal: 10,
-    fontSize: 14,
-    lineHeight: 24,
+    fontSize: 18,
+    lineHeight: 30,
   },
   button: {
     marginTop: 22,

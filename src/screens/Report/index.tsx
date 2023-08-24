@@ -104,13 +104,13 @@ const styles = StyleSheet.create({
     width: 342,
     height: 504,
     paddingHorizontal: 12,
-    paddingVertical: 24,
+    paddingVertical: 22,
     borderRadius: 20,
   },
   text: {
     paddingHorizontal: 10,
-    fontSize: 14,
-    lineHeight: 24,
+    fontSize: 17,
+    lineHeight: 30,
   },
   button: {
     marginTop: 22,
