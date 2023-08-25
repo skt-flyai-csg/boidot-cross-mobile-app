@@ -1,16 +1,11 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
 import Icon from 'react-native-vector-icons/Feather';
 import TextComponent from '../TextComponent';
+import {CardProps} from '../../types';
 
-interface CardProps {
-  name: string;
-  isDetail: boolean;
-  children?: React.ReactNode;
-}
-
-const Card: FC<CardProps> = ({name, isDetail, children}) => {
+const Card = ({name, isDetail, children}: CardProps) => {
   const {theme} = useTheme();
   return (
     <View style={[styles.view, {backgroundColor: theme.white}]}>

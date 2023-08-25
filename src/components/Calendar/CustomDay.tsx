@@ -3,9 +3,9 @@ import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import TextComponent from '../TextComponent';
 import {useTheme} from '../../contexts/ThemeContext';
 import {useNavigation} from '@react-navigation/native';
-import {DiaryScreenProps} from '../../types';
+import {CustomDayProps, DiaryScreenProps} from '../../types';
 
-const CustomDay = ({date, marking}: any) => {
+const CustomDay = ({date, marking}: CustomDayProps) => {
   const {theme} = useTheme();
   const navigation = useNavigation<DiaryScreenProps>();
   if (!marking) {

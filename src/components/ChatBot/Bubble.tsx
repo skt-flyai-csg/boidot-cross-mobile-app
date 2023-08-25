@@ -2,22 +2,15 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
 import TextComponent from '../TextComponent';
+import {BubbleProps} from '../../types';
 
-interface BubbleProps {
-  isMe: boolean;
-  message: string;
-}
-
-const Bubble: React.FC<BubbleProps> = ({isMe, message}) => {
+const Bubble = ({isMe, message}: BubbleProps) => {
   const {theme} = useTheme();
 
   if (isMe) {
     return (
       <View
-        style={[
-          styles.bubble,
-          {backgroundColor: theme.primary, maxWidth: 230, marginLeft: 'auto'},
-        ]}>
+        style={[styles.bubble, styles.right, {backgroundColor: theme.primary}]}>
         <TextComponent
           weight="regular"
           style={[styles.text, {color: theme.white}]}>
@@ -31,10 +24,9 @@ const Bubble: React.FC<BubbleProps> = ({isMe, message}) => {
         <View
           style={[
             styles.bubble,
+            styles.left,
             {
               backgroundColor: theme.secondary,
-              maxWidth: 230,
-              marginRight: 'auto',
             },
           ]}>
           <TextComponent
@@ -66,5 +58,13 @@ const styles = StyleSheet.create({
   },
   indicatorContainer: {
     flexDirection: 'row',
+  },
+  left: {
+    maxWidth: 230,
+    alignSelf: 'flex-start',
+  },
+  right: {
+    maxWidth: 230,
+    alignSelf: 'flex-end',
   },
 });

@@ -1,26 +1,6 @@
-type FontWeight = 'normal' | 'bold';
+import {CalendarStyleProps} from '../../types/Calendar';
 
-interface calendarStyleProps {
-  backgroundColor: string;
-  calendarBackground: string;
-  selectedDayBackgroundColor: string;
-  selectedDayTextColor: string;
-  todayTextColor: string;
-  dayTextColor: string;
-  arrowColor: string;
-  monthTextColor: string;
-  textDayFontFamily: string;
-  textMonthFontFamily: string;
-  textDayHeaderFontFamily: string;
-  textDayFontWeight: FontWeight;
-  textMonthFontWeight: FontWeight;
-  textDayHeaderFontWeight: FontWeight;
-  textDayFontSize: number;
-  textMonthFontSize: number;
-  textDayHeaderFontSize: number;
-}
-
-export const calendarTheme: calendarStyleProps = {
+export const calendarTheme: CalendarStyleProps = {
   backgroundColor: '#FFFFFF',
   calendarBackground: '#FFFFFF',
   selectedDayBackgroundColor: '#FEA76A',

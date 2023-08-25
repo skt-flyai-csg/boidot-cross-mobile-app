@@ -9,11 +9,11 @@ const images = [
   'https://velog.velcdn.com/images/limce21/post/6f78f62b-d17b-4c50-b3dc-9cbc1b082e16/image.png',
 ];
 
-function ImageSlider() {
+const ImageSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const {theme} = useTheme();
 
-  const onViewRef = React.useRef(({viewableItems}) => {
+  const onViewRef = React.useRef(({viewableItems}: any) => {
     setActiveIndex(viewableItems[0].index);
   });
 
@@ -51,7 +51,7 @@ function ImageSlider() {
       </View>
     </View>
   );
-}
+};
 
 export default ImageSlider;
 

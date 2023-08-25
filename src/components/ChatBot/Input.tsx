@@ -1,32 +1,11 @@
-import React, {Dispatch, SetStateAction, RefObject, useState} from 'react';
+import React from 'react';
 import {StyleSheet, TextInput, TouchableOpacity, View} from 'react-native';
 import {useKeyboardHeight} from '../../hooks/useKeyboardHeight';
 import {useTheme} from '../../contexts/ThemeContext';
 import Icon from 'react-native-vector-icons/Feather';
+import {InputProps} from '../../types';
 
-export interface MessageProps {
-  type: string;
-  isMe?: boolean;
-  message?: string;
-  data?: {
-    objectId: string;
-    createdTime: string;
-  };
-}
-
-interface InputProps {
-  text: string;
-  setText: Dispatch<SetStateAction<string>>;
-  inputRef: RefObject<TextInput>;
-  handleSubmit: () => void;
-}
-
-const Input: React.FC<InputProps> = ({
-  text,
-  setText,
-  inputRef,
-  handleSubmit,
-}) => {
+const Input = ({text, setText, inputRef, handleSubmit}: InputProps) => {
   const keyboardHeight = useKeyboardHeight();
   const {theme} = useTheme();
   return (

@@ -1,28 +1,17 @@
 import React from 'react';
-import Buy from '../../assets/images/Glass/Buy';
-import Calendar from '../../assets/images/Glass/Calendar';
-import Game from '../../assets/images/Glass/Game';
-import Heart from '../../assets/images/Glass/Heart';
-import Notification from '../../assets/images/Glass/Notification';
-import Star from '../../assets/images/Glass/Star';
-import Tick from '../../assets/images/Glass/Tick';
-import Volume from '../../assets/images/Glass/Volume';
+import {IconProps} from '../../types';
+import {
+  Buy,
+  Calendar,
+  Game,
+  Heart,
+  Notification,
+  Star,
+  Tick,
+  Volume,
+} from '../../assets/images/Glass';
 
-export interface IconProps {
-  type:
-    | 'buy'
-    | 'calendar'
-    | 'game'
-    | 'heart'
-    | 'notification'
-    | 'star'
-    | 'tick'
-    | 'volume';
-  width: number;
-  height: number;
-}
-
-const IconComponent: React.FC<IconProps> = ({type, width, height}) => {
+const IconComponent = ({type, width, height}: IconProps) => {
   switch (type) {
     case 'buy':
       return <Buy width={width} height={height} />;

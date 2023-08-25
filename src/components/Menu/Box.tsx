@@ -1,15 +1,11 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
 import IconComponent from '../Icon';
 import TextComponent from '../TextComponent';
+import {MenuCardProps} from '../../types';
 
-interface BoxProps {
-  iconType: 'calendar' | 'game' | 'tick';
-  title: string;
-  children: ReactNode;
-}
-const Box: React.FC<BoxProps> = ({iconType, title, children}) => {
+const Box = ({iconType, title, children}: MenuCardProps) => {
   const {theme} = useTheme();
   return (
     <View style={[styles.box, {backgroundColor: theme.white}]}>

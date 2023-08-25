@@ -3,14 +3,9 @@ import {StyleSheet, View} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
 import Icon from 'react-native-vector-icons/Feather';
 import TextComponent from '../TextComponent';
+import {ExampleProps} from '../../types';
 
-interface ExampleProps {
-  name: string;
-  title: string;
-  example: string;
-}
-
-const Example: React.FC<ExampleProps> = ({name, title, example}) => {
+const Example = ({name, title, example}: ExampleProps) => {
   const {theme} = useTheme();
   return (
     <View style={[styles.alignCenter, styles.justifyCenter, styles.gap14]}>

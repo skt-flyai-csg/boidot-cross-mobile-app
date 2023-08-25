@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import axios from 'axios';
 import {BASE_URL, USER_ID} from '@env';
 import {useAuth} from '../contexts/AuthContext';
-import {MessageProps} from '../components/ChatBot/Input';
+import {MessageProps} from '../types';
 
 export const useGptRequest = (
   handleMessage: ({type, isMe, message}: MessageProps) => void,

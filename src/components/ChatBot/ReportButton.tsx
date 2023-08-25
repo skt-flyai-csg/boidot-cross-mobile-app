@@ -6,16 +6,9 @@ import moment from 'moment';
 import {useNavigation} from '@react-navigation/native';
 import {useBottomSheet} from '@gorhom/bottom-sheet';
 import {useTheme} from '../../contexts/ThemeContext';
-import {ReportScreenProps} from '../../types';
+import {ChatButtonProps, ReportScreenProps} from '../../types';
 
-interface ReportButtonProps {
-  report: {
-    createdTime: string;
-    objectId: string;
-  };
-}
-
-const ReportButton: React.FC<ReportButtonProps> = ({report}) => {
+const ReportButton = ({report}: ChatButtonProps) => {
   const navigation = useNavigation<ReportScreenProps>();
   const {close} = useBottomSheet();
   const {theme} = useTheme();

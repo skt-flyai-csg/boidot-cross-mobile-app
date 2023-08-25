@@ -6,8 +6,8 @@ import {useTheme} from '../../contexts/ThemeContext';
 import TextComponent from '../../components/TextComponent';
 import Icon from 'react-native-vector-icons/Feather';
 import IconComponent from '../../components/Icon';
-import NeedCard from '../../components/Main/NeedCard';
-import Box from '../../components/Main/Box';
+import NeedCard from '../../components/Menu/NeedCard';
+import Box from '../../components/Menu/Box';
 
 const Menu = () => {
   const {theme} = useTheme();

@@ -2,12 +2,12 @@ import React from 'react';
 import {Text, TextStyle} from 'react-native';
 import {TextComponentProps} from '../types';
 
-const TextComponent: React.FC<TextComponentProps> = ({
+const TextComponent = ({
   weight,
   style,
   children,
   ...props
-}) => {
+}: TextComponentProps) => {
   const fontMap = {
     light: 'NanumSquareNeo-aLt',
     regular: 'NanumSquareNeo-bRg',

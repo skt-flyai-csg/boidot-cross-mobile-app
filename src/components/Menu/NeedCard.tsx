@@ -1,16 +1,11 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
 import IconComponent from '../Icon';
 import TextComponent from '../TextComponent';
+import {MenuCardProps} from '../../types';
 
-interface NeedCardProps {
-  iconType: 'calendar' | 'game' | 'tick';
-  title: string;
-  children: ReactNode;
-}
-
-const NeedCard: React.FC<NeedCardProps> = ({iconType, title, children}) => {
+const NeedCard = ({iconType, title, children}: MenuCardProps) => {
   const {theme} = useTheme();
   return (
     <View style={[styles.cardView, {backgroundColor: theme.white}]}>

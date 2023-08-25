@@ -1,43 +1,50 @@
-import React, {Dispatch, SetStateAction, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
-import {Calendar} from 'react-native-calendars';
+import {Calendar, DateData} from 'react-native-calendars';
 import {calendarTheme} from './calendarStyles';
 import axios from 'axios';
 import {BASE_URL} from '@env';
 import {useAuth} from '../../contexts/AuthContext';
 import moment from 'moment';
 import CustomDay from './CustomDay';
+import {BoxProps} from '../../types';
 
-interface BoxProps {
-  setIsLoading: Dispatch<SetStateAction<boolean>>;
-}
+const CustomDayComponent = (props: any) => <CustomDay {...props} />;
 
-const Box: React.FC<BoxProps> = ({setIsLoading}) => {
+const Box = ({setIsLoading}: BoxProps) => {
   const {theme} = useTheme();
   const {token} = useAuth();
   const [diaries, setDiaries] = useState();
   const [year, setYear] = useState(moment().year());
   const [month, setMonth] = useState(moment().month() + 1);
 
-  useEffect(() => {
-    setIsLoading(true);
-    getDiaries();
-  }, [month]);
-
-  function convertDiaries(diaries) {
-    return diaries.reduce((acc, diary) => {
-      const day = moment(diary.createdTime).format('YYYY-MM-DD');
-      acc[day] = {
-        ...acc[diary.day],
-        objectId: diary.id,
-        customStyles: customStyles,
+  const convertDiaries = useCallback(
+    (_diaries: any[]) => {
+      const customStyles = {
+        container: {
+          backgroundColor: theme.diaryBottom,
+          borderRadius: 0,
+        },
+        text: {
+          color: theme.white,
+        },
       };
-      return acc;
-    }, {});
-  }
+      return _diaries.reduce((acc, diary) => {
+        const day = moment(diary.createdTime).format('YYYY-MM-DD');
+        acc[day] = {
+          ...acc[diary.day],
+          objectId: diary.id,
+          customStyles: customStyles,
+        };
 
-  async function getDiaries() {
+        return acc;
+      }, {});
+    },
+    [theme],
+  );
+
+  const getDiaries = useCallback(async () => {
     try {
       const response = await axios.get(`${BASE_URL}/diaries/`, {
         headers: {
@@ -56,18 +63,18 @@ const Box: React.FC<BoxProps> = ({setIsLoading}) => {
     } catch (err) {
       throw err;
     }
-  }
-  const customStyles = {
-    container: {
-      backgroundColor: theme.diaryBottom,
-      borderRadius: 0,
-    },
-    text: {
-      color: theme.white,
-    },
-  };
+  }, [year, month, convertDiaries, setIsLoading, token]);
 
-  const handleMonthChange = date => {
+  useEffect(() => {
+    const fetchDiaries = async () => {
+      setIsLoading(true);
+      await getDiaries();
+    };
+
+    fetchDiaries();
+  }, [month, getDiaries, setIsLoading]);
+
+  const handleMonthChange = (date: DateData) => {
     setYear(date.year);
     setMonth(date.month);
   };
@@ -78,7 +85,7 @@ const Box: React.FC<BoxProps> = ({setIsLoading}) => {
         markingType={'custom'}
         markedDates={diaries}
         theme={calendarTheme}
-        dayComponent={props => <CustomDay {...props} />}
+        dayComponent={CustomDayComponent}
         onMonthChange={date => handleMonthChange(date)}
       />
     </View>
