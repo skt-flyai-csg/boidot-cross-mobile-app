@@ -1,11 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import TopBar from '../../components/TopBar';
@@ -20,6 +14,7 @@ import axios from 'axios';
 import {BASE_URL} from '@env';
 import {useNavigation} from '@react-navigation/native';
 import {DefaultScreenProps} from '../../types';
+import FastImage from 'react-native-fast-image';
 
 const Diary = ({route}) => {
   const {theme} = useTheme();
@@ -76,7 +71,11 @@ const Diary = ({route}) => {
               </TextComponent>
               <View style={[styles.scrollView]}>
                 <ScrollView contentContainerStyle={[styles.alignCenter]}>
-                  <Image source={{uri: diary.image}} style={[styles.image]} />
+                  <FastImage
+                    source={{uri: diary.image}}
+                    style={[styles.image]}
+                    resizeMode={FastImage.resizeMode.contain}
+                  />
                   <TextComponent
                     weight="light"
                     style={[styles.text, {color: theme.text}]}>

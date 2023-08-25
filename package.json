@@ -21,6 +21,7 @@
     "react-native": "0.72.3",
     "react-native-calendars": "^1.1300.0",
     "react-native-dotenv": "^3.4.9",
+    "react-native-fast-image": "^8.6.3",
     "react-native-flipper": "^0.211.1",
     "react-native-gesture-handler": "^2.12.1",
     "react-native-linear-gradient": "^2.8.2",

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {View, FlatList, Image, StyleSheet} from 'react-native';
+import {View, FlatList, StyleSheet} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
+import FastImage from 'react-native-fast-image';
 
 const images = [
   'https://velog.velcdn.com/images/limce21/post/8a38ec06-ddd5-463b-a426-479c566b2aa5/image.png',
@@ -27,7 +28,7 @@ function ImageSlider() {
         onScrollToIndexFailed={() => {}}
         keyExtractor={(_, index) => index.toString()}
         renderItem={({item}) => (
-          <Image source={{uri: item}} style={[styles.image]} />
+          <FastImage source={{uri: item}} style={[styles.image]} />
         )}
         onViewableItemsChanged={onViewRef.current}
         viewabilityConfig={viewConfigRef.current}
