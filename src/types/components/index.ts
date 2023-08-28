@@ -96,5 +96,5 @@ export interface ThemeProps {
 }
 
 export interface RouteProps {
-  route: Route<string, {objectId: string}>;
+  route?: Route<string, {objectId: string}>;
 }

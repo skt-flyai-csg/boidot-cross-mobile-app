@@ -50,7 +50,7 @@ const LoadingIndicator = ({radius, color}: LoadingIndicatorProps) => {
       return (
         <Animated.View
           key={index}
-          style={[circleStyle, opacity, {marginLeft: index === 0 ? 0 : 5}]}
+          style={[circleStyle, {opacity}, {marginLeft: index === 0 ? 0 : 5}]}
         />
       );
     });

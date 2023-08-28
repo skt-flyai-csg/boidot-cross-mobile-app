@@ -8,23 +8,25 @@ import BottomSheet, {
 } from '@gorhom/bottom-sheet';
 import {useCallback, useEffect, useMemo, useRef} from 'react';
 import {StyleSheet} from 'react-native';
-import ChatBot from './src/screens/ChatBot';
-import Calendar from './src/screens/Calendar';
 import {
   NavigationContainer,
   useNavigationContainerRef,
 } from '@react-navigation/native';
-import Home from './src/screens/Home';
-import ChatT from './src/screens/ChatT';
-import Menu from './src/screens/Menu';
-import Diary from './src/screens/Diary';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {AUTH_ID, AUTH_PW, BASE_URL} from '@env';
 import axios from 'axios';
 import FlipperAsyncStorage from 'rn-flipper-async-storage-advanced';
 import {useAuth} from './src/contexts/AuthContext';
-import Report from './src/screens/Report/index';
 import {useTheme} from './src/contexts/ThemeContext';
+import {
+  Calendar,
+  ChatBot,
+  ChatT,
+  Diary,
+  Home,
+  Menu,
+  Report,
+} from './src/screens';
 
 const Stack = createNativeStackNavigator();
 
@@ -103,13 +105,13 @@ function Main() {
             options={{headerShown: false}}
           />
           <Stack.Screen
-            name="Diary"
-            component={Diary}
+            name="Calendar"
+            component={Calendar}
             options={{headerShown: false}}
           />
           <Stack.Screen
-            name="Calendar"
-            component={Calendar}
+            name="Diary"
+            component={Diary}
             options={{headerShown: false}}
           />
           <Stack.Screen
