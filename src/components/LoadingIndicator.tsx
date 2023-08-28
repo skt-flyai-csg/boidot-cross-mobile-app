@@ -1,27 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {Animated, StyleSheet, View} from 'react-native';
 import {LoadingIndicatorProps} from '../types';
 
 const LoadingIndicator = ({radius, color}: LoadingIndicatorProps) => {
-  const [progress, setProgress] = useState([
+  const [progress, _setProgress] = useState([
     new Animated.Value(0),
     new Animated.Value(0),
     new Animated.Value(0),
   ]);
 
-  useEffect(() => {
-    animateCircles();
-    return () => {};
-  }, []);
-
-  const circleStyle = {
-    width: radius,
-    height: radius,
-    borderRadius: radius,
-    backgroundColor: color,
-  };
-
-  const animateCircles = () => {
+  const animateCircles = useCallback(() => {
     const animations = progress.map(value => {
       return Animated.sequence([
         Animated.timing(value, {
@@ -38,6 +26,18 @@ const LoadingIndicator = ({radius, color}: LoadingIndicatorProps) => {
     });
 
     Animated.loop(Animated.stagger(300, animations)).start();
+  }, [progress]);
+
+  useEffect(() => {
+    animateCircles();
+    return () => {};
+  }, [animateCircles]);
+
+  const circleStyle = {
+    width: radius,
+    height: radius,
+    borderRadius: radius,
+    backgroundColor: color,
   };
 
   const renderCircles = () => {
@@ -50,7 +50,7 @@ const LoadingIndicator = ({radius, color}: LoadingIndicatorProps) => {
       return (
         <Animated.View
           key={index}
-          style={[circleStyle, {opacity, marginLeft: index === 0 ? 0 : 5}]}
+          style={[circleStyle, opacity, {marginLeft: index === 0 ? 0 : 5}]}
         />
       );
     });

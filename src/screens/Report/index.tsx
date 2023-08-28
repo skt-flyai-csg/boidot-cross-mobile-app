@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -8,18 +8,19 @@ import TextComponent from '../../components/TextComponent';
 import moment from 'moment';
 import {useAuth} from '../../contexts/AuthContext';
 import axios from 'axios';
-import {BASE_URL} from '@env';
 import LoadingIndicator from '../../components/LoadingIndicator';
 import ImageSlider from '../../components/Report/ImageSlider';
+import {RouteProps} from '../../types/components';
+import {BASE_URL} from '@env';
 
-const Report = ({route}) => {
+const Report = ({route}: RouteProps) => {
   const {theme} = useTheme();
   const [report, setReport] = useState(data);
   const {token} = useAuth();
   const {objectId} = route.params;
   const [isLoading, setIsLoading] = useState(true);
 
-  async function getReport() {
+  const getReport = useCallback(async () => {
     try {
       const response = await axios.get(`${BASE_URL}/reports/${objectId}/`, {
         headers: {
@@ -34,12 +35,12 @@ const Report = ({route}) => {
     } catch (err) {
       throw err;
     }
-  }
+  }, [objectId, token]);
 
   useEffect(() => {
     setIsLoading(true);
     getReport();
-  }, [objectId]);
+  }, [getReport, objectId]);
 
   return (
     <SafeAreaView
@@ -62,7 +63,7 @@ const Report = ({route}) => {
             </TextComponent>
             <View style={[styles.scrollView, {backgroundColor: theme.white}]}>
               <ScrollView>
-                <ImageSlider />
+                <ImageSlider image_url_list={report.image_url_list} />
                 <TextComponent
                   weight="light"
                   style={[styles.text, {color: theme.textGrey}]}>

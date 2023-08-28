@@ -1,4 +1,4 @@
-import {ParamListBase} from '@react-navigation/native';
+import {ParamListBase, Route} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 interface NavigationParamList extends ParamListBase {
@@ -93,4 +93,8 @@ export interface ThemeProps {
   white: string;
   diaryTop: string;
   diaryBottom: string;
+}
+
+export interface RouteProps {
+  route: Route<string, {objectId: string}>;
 }

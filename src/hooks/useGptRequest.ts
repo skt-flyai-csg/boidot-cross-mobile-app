@@ -29,6 +29,7 @@ export const useGptRequest = (
         data: data,
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   async function getGptRequest(requestId: string) {

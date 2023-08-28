@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -11,12 +11,13 @@ import LinearGradient from 'react-native-linear-gradient';
 import LoadingIndicator from '../../components/LoadingIndicator';
 import {useAuth} from '../../contexts/AuthContext';
 import axios from 'axios';
-import {BASE_URL} from '@env';
 import {useNavigation} from '@react-navigation/native';
 import {DefaultScreenProps} from '../../types';
 import FastImage from 'react-native-fast-image';
+import {RouteProps} from '../../types/components';
+import {BASE_URL} from '@env';
 
-const Diary = ({route}) => {
+const Diary = ({route}: RouteProps) => {
   const {theme} = useTheme();
   const [diary, setDiary] = useState(data);
   const {token} = useAuth();
@@ -24,7 +25,7 @@ const Diary = ({route}) => {
   const [isLoading, setIsLoading] = useState(true);
   const navigation = useNavigation<DefaultScreenProps>();
 
-  async function getDiary() {
+  const getDiary = useCallback(async () => {
     try {
       const response = await axios.get(`${BASE_URL}/diaries/${objectId}/`, {
         headers: {
@@ -39,12 +40,12 @@ const Diary = ({route}) => {
     } catch (err) {
       throw err;
     }
-  }
+  }, [objectId, token]);
 
   useEffect(() => {
     setIsLoading(true);
     getDiary();
-  }, [objectId]);
+  }, [getDiary, objectId]);
 
   return (
     <LinearGradient

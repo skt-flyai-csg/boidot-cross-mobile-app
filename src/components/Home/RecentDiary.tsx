@@ -6,7 +6,7 @@ import moment from 'moment';
 import {useTheme} from '../../contexts/ThemeContext';
 
 const RecentDiary = () => {
-  const [diary, setDiary] = useState(data);
+  const [diary, _setDiary] = useState(data);
   const {theme} = useTheme();
   return (
     <View>
