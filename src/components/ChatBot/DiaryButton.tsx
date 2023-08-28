@@ -5,9 +5,9 @@ import TextComponent from '../TextComponent';
 import moment from 'moment';
 import {useNavigation} from '@react-navigation/native';
 import {useBottomSheet} from '@gorhom/bottom-sheet';
-import {ChatButtonProps, DiaryScreenProps} from '../../types';
+import {DiaryButtonProps, DiaryScreenProps} from '../../types';
 
-const DiaryButton = ({diary}: ChatButtonProps) => {
+const DiaryButton = ({diary}: DiaryButtonProps) => {
   const {theme} = useTheme();
   const navigation = useNavigation<DiaryScreenProps>();
   const {close} = useBottomSheet();

@@ -2,5 +2,10 @@
   "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "body": "디폴트",
-  "createdTime": "2023-08-16T07:55:13.316Z"
+  "createdTime": "2023-08-16T07:55:13.316Z",
+  "image_url_list": [
+    "https://velog.velcdn.com/images/limce21/post/8a38ec06-ddd5-463b-a426-479c566b2aa5/image.png",
+    "https://velog.velcdn.com/images/limce21/post/44aa9598-936a-4428-a9da-99564ee8f9b5/image.png",
+    "https://velog.velcdn.com/images/limce21/post/6f78f62b-d17b-4c50-b3dc-9cbc1b082e16/image.png"
+  ]
 }

@@ -76,3 +76,21 @@ export interface IconProps {
   width: number;
   height: number;
 }
+
+export interface ThemeProps {
+  primary: string;
+  primaryHover: string;
+  secondary: string;
+  backgroundGeneral: string;
+  backgroundHome: string;
+  backgroundChat: string;
+  backgroundGrey: string;
+  box: string;
+  text: string;
+  textNavy: string;
+  textGrey: string;
+  textLightGrey: string;
+  white: string;
+  diaryTop: string;
+  diaryBottom: string;
+}

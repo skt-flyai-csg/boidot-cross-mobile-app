@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
 import {Calendar, DateData} from 'react-native-calendars';
-import {calendarTheme} from './calendarStyles';
+import {calendarTheme} from '../../styles/calendarStyles';
 import axios from 'axios';
 import {BASE_URL} from '@env';
 import {useAuth} from '../../contexts/AuthContext';

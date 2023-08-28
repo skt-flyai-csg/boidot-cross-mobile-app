@@ -1,4 +1,4 @@
-import {CalendarStyleProps} from '../../types/Calendar';
+import {CalendarStyleProps} from '../types/Calendar';
 
 export const calendarTheme: CalendarStyleProps = {
   backgroundColor: '#FFFFFF',

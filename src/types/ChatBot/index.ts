@@ -6,6 +6,20 @@ export interface BubbleProps {
   message: string;
 }
 
+export interface DiaryButtonProps {
+  diary: {
+    createdTime: string;
+    objectId: string;
+  };
+}
+
+export interface ReportButtonProps {
+  report: {
+    createdTime: string;
+    objectId: string;
+  };
+}
+
 export interface ChatButtonProps {
   diary: {
     createdTime: string;

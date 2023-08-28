@@ -3,13 +3,11 @@ import {View, FlatList, StyleSheet} from 'react-native';
 import {useTheme} from '../../contexts/ThemeContext';
 import FastImage from 'react-native-fast-image';
 
-const images = [
-  'https://velog.velcdn.com/images/limce21/post/8a38ec06-ddd5-463b-a426-479c566b2aa5/image.png',
-  'https://velog.velcdn.com/images/limce21/post/44aa9598-936a-4428-a9da-99564ee8f9b5/image.png',
-  'https://velog.velcdn.com/images/limce21/post/6f78f62b-d17b-4c50-b3dc-9cbc1b082e16/image.png',
-];
+interface ImageList {
+  image_url_list: string[];
+}
 
-const ImageSlider = () => {
+const ImageSlider = ({image_url_list}: ImageList) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const {theme} = useTheme();
 
@@ -22,7 +20,7 @@ const ImageSlider = () => {
   return (
     <View style={[styles.view]}>
       <FlatList
-        data={images}
+        data={image_url_list}
         horizontal
         pagingEnabled
         onScrollToIndexFailed={() => {}}
@@ -36,7 +34,7 @@ const ImageSlider = () => {
         style={[styles.carousel]}
       />
       <View style={[styles.circleBox]}>
-        {images.map((_, i) => (
+        {image_url_list.map((_, i) => (
           <View
             key={i}
             style={[

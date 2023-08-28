@@ -7,6 +7,7 @@ export type {
   TopBarProps,
   TextComponentProps,
   IconProps,
+  ThemeProps,
 } from './components';
 
 export type {BoxProps, CustomDayProps} from './Calendar';
@@ -19,7 +20,8 @@ export type {MenuCardProps} from './Menu';
 
 export type {
   BubbleProps,
-  ChatButtonProps,
+  DiaryButtonProps,
+  ReportButtonProps,
   MessageProps,
   ListFooterProps,
   InputProps,

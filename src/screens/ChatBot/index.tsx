@@ -7,7 +7,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import Input, {MessageProps} from '../../components/ChatBot/Input';
+import Input from '../../components/ChatBot/Input';
 import Footer from '../../components/ChatBot/Footer';
 import Bubble from '../../components/ChatBot/Bubble';
 import TextComponent from '../../components/TextComponent';
@@ -20,6 +20,7 @@ import ListFooter from '../../components/ChatBot/ListFooter';
 import {useGptRequest} from '../../hooks/useGptRequest';
 import ReportButton from '../../components/ChatBot/ReportButton';
 import DiaryButton from '../../components/ChatBot/DiaryButton';
+import {MessageProps} from '../../types';
 
 const ChatBot = () => {
   const [text, setText] = useState('');
