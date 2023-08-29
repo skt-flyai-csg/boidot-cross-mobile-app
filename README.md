@@ -7,25 +7,62 @@
     <a href="https://skttechacademy.com/nonmember/flyAi/flyAiProjectReviewList"/>보이닷 프로젝트 설명 바로가기</a>
     <h3>🛠 Skill Keywords 🛠</h3>
     <div align="center">
-        <img src="https://img.shields.io/badge/Node-339933?style=flat-square&logo=Node.js&logoColor=white"/>&nbsp 
         <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=TypeScript&logoColor=white"/>&nbsp 
-        <img src="https://img.shields.io/badge/WebRTC-333333?style=flat-square&logo=WebRTC&logoColor=white">&nbsp
-        <img src="https://img.shields.io/badge/Socket.io-010101?style=flat-square&logo=Socket.io&logoColor=white">
+        <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black"/>&nbsp
+        <img src="https://img.shields.io/badge/iOS-000000?style=flat-square&logo=iOS&logoColor=white"/>&nbsp
         <br>
-        <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB">&nbsp
-        <img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white">&nbsp
-        <img src="https://img.shields.io/badge/styled components-DB7093?style=flat-square&logo=Styled-components&logoColor=white"/>&nbsp
-        <img src="https://img.shields.io/badge/Sentry-362D59?style=flat-square&logo=Sentry&logoColor=white"/>&nbsp
+        <img src="https://img.shields.io/badge/Django-092E20?style=flat-square&logo=Django&logoColor=white">&nbsp
+        <img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=Flask&logoColor=white">&nbsp
+        <img src="https://img.shields.io/badge/postgresql-4169E1?style=flat-square&logo=postgresql&logoColor=white">&nbsp
         <br>
-        <img src="https://img.shields.io/badge/Nest.js-E0234E?style=flat-square&logo=NestJS&logoColor=white"/>
-        <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white"/>
-        <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=Redis&logoColor=white"/>
-        <img src="https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=Prisma&logoColor=white"/>
-        <img src="https://img.shields.io/badge/Jest-C21325?style=flat-square&logo=Jest&logoColor=white"/>
+        <img src="https://img.shields.io/badge/microsoftazure-0078D4?style=flat-square&logo=microsoftazure&logoColor=white">&nbsp
+        <img src="https://img.shields.io/badge/jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white"/>
+        <img src="https://img.shields.io/badge/docker-2496ED?style=flat-square&logo=docker&logoColor=white"/>
+        <img src="https://img.shields.io/badge/vault-FFEC6E?style=flat-square&logo=vault&logoColor=black"/>
         <br>
-        <img src="https://img.shields.io/badge/Nginx-009639?style=flat-square&logo=Nginx&logoColor=white">&nbsp
-        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white">&nbsp
-        <img src="https://img.shields.io/badge/Github Actions-2088FF?style=flat-square&logo=Github Actions&logoColor=white">&nbsp
-        <img src="https://img.shields.io/badge/NaverCloudPlatform-03C75A?style=flat-square&logo=Naver&logoColor=white"/>
+        <img src="https://img.shields.io/badge/tensorflow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white">&nbsp
+        <img src="https://img.shields.io/badge/pytorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white">&nbsp
+        <img src="https://img.shields.io/badge/opencv-5C3EE8?style=flat-square&logo=opencv&logoColor=white">&nbsp
+        <img src="https://img.shields.io/badge/openai-412991?style=flat-square&logo=openai&logoColor=white">&nbsp
     </div>
 </div>
+
+<h2>메인 기능</h2>
+<h3>Flow</h3>
+<div align="center">
+    <img src="https://velog.velcdn.com/images/limce21/post/4e0cb184-6cf7-40a0-936a-ba332cbdf793/image.png" width = "750px" />
+</div>
+
+<h3>1. 우리 아이 일기</h3>
+
+>보이닷의 자동 일기 생성 서비스를 통해 아이가 보낸 빛나는 하루를 확인할 수 있습니다.
+
+<div align="center">
+    <img src="https://velog.velcdn.com/images/limce21/post/ede5b210-19ef-4344-8d9c-8ce6c85b104d/image.png" width = "600px" />
+</div>
+
+<br/>
+
+<h3>2. 우리 아이 하루 요약</h3>
+
+>보이닷의 우리 아이 하루 요약 서비스를 통해 아이의 어린이집 생활을 한눈에 확인할 수 있습니다.
+
+<div align="center">
+    <img src="https://velog.velcdn.com/images/limce21/post/1a6e932d-ef16-4b25-a659-a7fdbdcc0a87/image.png" width = "600px" />
+</div>
+
+<h2>링크</h2>   
+
+- 시연 영상 : https://www.youtube.com/watch?v=OBDlh80HjE4
+
+<br/>
+
+<h2>팀원 소개</h2>
+
+| 사진 | 이름 | 깃허브 아이디 | 역할 |
+| :---: | :---: | :---: | :---: |
+| ![사진1](사진 URL) | 이름1 | [@아이디1](https://github.com/아이디1) | 역할1 |
+| ![사진2](사진 URL) | 이름2 | [@아이디2](https://github.com/아이디2) | 역할2 |
+| ![사진3](사진 URL) | 이름3 | [@아이디3](https://github.com/아이디3) | 역할3 |
+| ![사진4](사진 URL) | 이름4 	| [@아이디4](https://github.com/아이디4)	| 역할4	|
+| ![사진5](사진 URL)| 이름5	|[ @아이디5 ]( https://github.com/ 아이디5 ) 	|역할5  	|
