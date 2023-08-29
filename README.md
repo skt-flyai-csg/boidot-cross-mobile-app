@@ -78,11 +78,11 @@
             <td><img width="200" src="https://velog.velcdn.com/images/limce21/post/ef355c3e-4625-4c27-9f59-bf836de292e6/image.png" /></td>
         </tr>
         <tr>
-            <td><a href="https://github.com/se030">@se030</a></td>
-            <td><a href="https://github.com/dohun31">@dohun31</a></td>
-            <td><a href="https://github.com/juyeong-s">@main-force</a></td>
-            <td><a href="https://github.com/wcho21">@nohhyejin1</a></td>
-            <td><a href="https://github.com/wcho21">@limce21</a></td>
+            <td><a href="https://github.com/ELLA1242">@ELLA1242</a></td>
+            <td><a href="https://github.com/gaerom">@gaerom</a></td>
+            <td><a href="https://github.com/main-force">@main-force</a></td>
+            <td><a href="https://github.com/nohhyejin1">@nohhyejin1</a></td>
+            <td><a href="https://github.com/limce21">@limce21</a></td>
         </tr>
         <tr>
             <td>뭐담당</td>
@@ -92,11 +92,11 @@
             <td>뭐담당</td>
         </tr>
         <tr>
-            <td width="200">협업을 즐기면서 결과물 완성하기<br/>커뮤니케이션, 지식 공유 열심히 하기<br/>
-            <td width="200">문제가 생겼을 때 겁먹지 않고 충분히 시도 후 트러블 슈팅 과정 잘 기록하기, 공유하기<br/>웃음가득한 팀 만들기</td>
-            <td width="200">사소한거라도 궁금해하기<br/>PR 리뷰 자세히 들여다보기</td>
-            <td width="200">다른 사람들과 협업하기에 좋은 사람 되기</td>
-            <td width="200">다른 사람들과 협업하기에 좋은 사람 되기</td>
+            <td width="200">임시</td>
+            <td width="200">임시</td>
+            <td width="200">임시</td>
+            <td width="200">임시</td>
+            <td width="200">임시</td>
         </tr>
     </tbody>
 </table>
