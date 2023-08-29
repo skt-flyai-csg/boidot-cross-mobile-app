@@ -59,10 +59,44 @@
 
 <h2>팀원 소개</h2>
 
-| 사진 | 이름 | 깃허브 아이디 | 역할 |
-| :---: | :---: | :---: | :---: |
-| ![사진1](사진 URL) | 이름1 | [@아이디1](https://github.com/아이디1) | 역할1 |
-| ![사진2](사진 URL) | 이름2 | [@아이디2](https://github.com/아이디2) | 역할2 |
-| ![사진3](사진 URL) | 이름3 | [@아이디3](https://github.com/아이디3) | 역할3 |
-| ![사진4](사진 URL) | 이름4 	| [@아이디4](https://github.com/아이디4)	| 역할4	|
-| ![사진5](사진 URL)| 이름5	|[ @아이디5 ]( https://github.com/ 아이디5 ) 	|역할5  	|
+<table align=center>
+    <thead>
+        <tr >
+            <th style="text-align:center;" >김기연</th>
+            <th style="text-align:center;" >김새롬</th>
+            <th style="text-align:center;" >김주력</th>
+            <th style="text-align:center;" >노혜진</th>
+            <th style="text-align:center;" >임채은</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img width="200" src="https://velog.velcdn.com/images/limce21/post/acffc474-cbb8-4e2e-9240-83c2ebd262ea/image.png" /> </td>
+            <td><img width="200" src="https://velog.velcdn.com/images/limce21/post/424046f5-c947-4370-9409-660f78eb364b/image.png" /></td>
+            <td><img width="200" src="https://velog.velcdn.com/images/limce21/post/b34026e9-1843-4fba-8336-4d1f7d592cf8/image.png" /></td>
+            <td><img width="200" src="https://velog.velcdn.com/images/limce21/post/d08d0914-5021-4934-9a91-29f3b68c9f58/image.png" /></td>
+            <td><img width="200" src="https://velog.velcdn.com/images/limce21/post/ef355c3e-4625-4c27-9f59-bf836de292e6/image.png" /></td>
+        </tr>
+        <tr>
+            <td><a href="https://github.com/se030">@se030</a></td>
+            <td><a href="https://github.com/dohun31">@dohun31</a></td>
+            <td><a href="https://github.com/juyeong-s">@main-force</a></td>
+            <td><a href="https://github.com/wcho21">@nohhyejin1</a></td>
+            <td><a href="https://github.com/wcho21">@limce21</a></td>
+        </tr>
+        <tr>
+            <td>뭐담당</td>
+            <td>뭐담당</td>
+            <td>뭐담당</td>
+            <td>뭐담당</td>
+            <td>뭐담당</td>
+        </tr>
+        <tr>
+            <td width="200">협업을 즐기면서 결과물 완성하기<br/>커뮤니케이션, 지식 공유 열심히 하기<br/>
+            <td width="200">문제가 생겼을 때 겁먹지 않고 충분히 시도 후 트러블 슈팅 과정 잘 기록하기, 공유하기<br/>웃음가득한 팀 만들기</td>
+            <td width="200">사소한거라도 궁금해하기<br/>PR 리뷰 자세히 들여다보기</td>
+            <td width="200">다른 사람들과 협업하기에 좋은 사람 되기</td>
+            <td width="200">다른 사람들과 협업하기에 좋은 사람 되기</td>
+        </tr>
+    </tbody>
+</table>
