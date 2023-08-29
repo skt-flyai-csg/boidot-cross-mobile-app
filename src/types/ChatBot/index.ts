@@ -45,7 +45,7 @@ export interface InputProps {
   text: string;
   setText: Dispatch<SetStateAction<string>>;
   inputRef: RefObject<TextInput>;
-  handleSubmit: () => void;
+  handleSubmit: (message: string) => void;
 }
 
 export interface ListFooterProps {

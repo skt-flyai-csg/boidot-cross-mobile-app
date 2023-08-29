@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "adot_clone.app"
-               BlueprintName = "adot_clone"
-               ReferencedContainer = "container:adot_clone.xcodeproj">
+               BuildableName = "BOI..app"
+               BlueprintName = "BOI."
+               ReferencedContainer = "container:BOI..xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "adot_cloneTests.xctest"
-               BlueprintName = "adot_cloneTests"
-               ReferencedContainer = "container:adot_clone.xcodeproj">
+               BuildableName = "BOI.Tests.xctest"
+               BlueprintName = "BOI.Tests"
+               ReferencedContainer = "container:BOI..xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "adot_clone.app"
-            BlueprintName = "adot_clone"
-            ReferencedContainer = "container:adot_clone.xcodeproj">
+            BuildableName = "BOI..app"
+            BlueprintName = "BOI."
+            ReferencedContainer = "container:BOI..xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "adot_clone.app"
-            BlueprintName = "adot_clone"
-            ReferencedContainer = "container:adot_clone.xcodeproj">
+            BuildableName = "BOI..app"
+            BlueprintName = "BOI."
+            ReferencedContainer = "container:BOI..xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

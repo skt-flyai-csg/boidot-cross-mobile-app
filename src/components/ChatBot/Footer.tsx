@@ -16,7 +16,7 @@ import TextComponent from '../TextComponent';
 interface FooterProps {
   handleButtonClick: () => void;
   setText: Dispatch<SetStateAction<string>>;
-  handleSubmit: () => void;
+  handleSubmit: (text: string) => void;
 }
 
 const Footer: React.FC<FooterProps> = ({
@@ -32,7 +32,8 @@ const Footer: React.FC<FooterProps> = ({
   useEffect(() => {
     if (!recognitionRunning && results.length > 0 && !isResultAdded) {
       setIsResultAdded(true);
-      handleSubmit();
+      setText(results[0]);
+      handleSubmit(results[0]);
     }
   }, [recognitionRunning, results, isResultAdded]);
 

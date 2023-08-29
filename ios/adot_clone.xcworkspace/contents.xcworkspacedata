@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:adot_clone.xcodeproj">
+      location = "group:/Users/lim/Desktop/SKT-FLY-AI-3/PROJECT/boidot-cross-mobile-app/ios/BOI..xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

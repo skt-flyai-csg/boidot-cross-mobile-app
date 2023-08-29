@@ -32,7 +32,7 @@ const Input = ({text, setText, inputRef, handleSubmit}: InputProps) => {
         <Icon name="mic" size={24} color={theme.primary} />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={handleSubmit}
+        onPress={() => handleSubmit(text)}
         style={[
           styles.button,
           {

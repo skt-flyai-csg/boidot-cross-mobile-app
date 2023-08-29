@@ -96,9 +96,12 @@ const ChatBot = () => {
     [],
   );
 
-  const handleSubmit = () => {
-    setMessages(prev => [...prev, {type: 'bubble', isMe: true, message: text}]);
-    switch (text) {
+  const handleSubmit = (message: string) => {
+    setMessages(prev => [
+      ...prev,
+      {type: 'bubble', isMe: true, message: message},
+    ]);
+    switch (message) {
       case '우리 아이 하루 요약':
         postGptRequest('report');
         break;
@@ -168,7 +171,11 @@ const ChatBot = () => {
           </View>
         </View>
         <Character />
-        <Footer handleButtonClick={handleButtonClick} />
+        <Footer
+          handleSubmit={handleSubmit}
+          handleButtonClick={handleButtonClick}
+          setText={setText}
+        />
         <KeyboardAvoidingView
           behavior={Platform.select({
             ios: 'padding',
