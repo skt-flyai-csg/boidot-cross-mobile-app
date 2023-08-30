@@ -27,7 +27,7 @@
     </div>
 </div>
 
-<h2>메인 기능</h2>
+<h2>📝 메인 기능</h2>
 <h3>Value Proposition Flow</h3>
 <div align="center">
     <img src="https://velog.velcdn.com/images/limce21/post/4e0cb184-6cf7-40a0-936a-ba332cbdf793/image.png" width = "750px" />
@@ -35,6 +35,10 @@
 <h3>Video Process Flow</h3>
 <div align="center">
     <img src="https://velog.velcdn.com/images/limce21/post/d87bc88b-e430-4b14-ba50-165bab3f53a1/image.png" width = "750px" />
+</div>
+<h3>Backend Architecture</h3>
+<div align="center">
+    <img src="https://velog.velcdn.com/images/limce21/post/857e3adb-7c1d-4c27-80b6-f62c7f5f8468/image.png" width = "750px" />
 </div>
 
 <h3>1. 우리 아이 일기</h3>
@@ -55,13 +59,13 @@
     <img src="https://velog.velcdn.com/images/limce21/post/1a6e932d-ef16-4b25-a659-a7fdbdcc0a87/image.png" width = "600px" />
 </div>
 
-<h2>링크</h2>   
+<h2>🔗 링크</h2>   
 
 - 시연 영상 : https://www.youtube.com/watch?v=OBDlh80HjE4
 
 <br/>
 
-<h2>팀원 소개</h2>
+<h2>💁 팀원 소개</h2>
 
 <table align=center>
     <thead>
@@ -89,18 +93,18 @@
             <td><a href="https://github.com/limce21">@limce21</a></td>
         </tr>
         <tr>
-            <td>뭐담당</td>
-            <td>뭐담당</td>
-            <td>뭐담당</td>
-            <td>뭐담당</td>
-            <td>뭐담당</td>
+            <td><b>Product Manager</b></td>
+            <td><b>AI Engineer</b></td>
+            <td><b>Backend Engineer</b></td>
+            <td><b>DevOps Engineer</b></td>
+            <td><b>Frontend Engineer</b></td>
         </tr>
         <tr>
-            <td width="200">임시</td>
-            <td width="200">임시</td>
-            <td width="200">임시</td>
-            <td width="200">임시</td>
-            <td width="200">임시</td>
+            <td width="200">프로젝트 기획<br/>모델 아키텍처 설계<br/>- BLIP-2(Image Captioning)<br/>텍스트 번역, 단어 추출 기능 개발</td>
+            <td width="200">모델 아키텍처 설계<br/>- YOLOv8(Object Detection)<br/>모델 Fine Tuning 주도</td>
+            <td width="200">Backend 아키텍처 설계<br/>gRPC, Django를 활용한 API 개발<br/>Microsoft Azure 리소스 관리</td>
+            <td width="200">CI/CD 자동화(Git, Docker, Jenkins)<br/>Vault를 활용한 Secret 관리<br/>Python 기반 앱 컨테이너화<br/>백엔드 API 개발 유지/보수</td>
+            <td width="200">UI/UX 디자인 및 설계<br/>React-Native, TypeScript를 활용한 크로스 플랫폼 앱 개발</td>
         </tr>
     </tbody>
 </table>
