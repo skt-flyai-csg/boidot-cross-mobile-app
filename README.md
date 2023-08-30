@@ -28,9 +28,13 @@
 </div>
 
 <h2>메인 기능</h2>
-<h3>Flow</h3>
+<h3>Value Proposition Flow</h3>
 <div align="center">
     <img src="https://velog.velcdn.com/images/limce21/post/4e0cb184-6cf7-40a0-936a-ba332cbdf793/image.png" width = "750px" />
+</div>
+<h3>Video Process Flow</h3>
+<div align="center">
+    <img src="https://velog.velcdn.com/images/limce21/post/d87bc88b-e430-4b14-ba50-165bab3f53a1/image.png" width = "750px" />
 </div>
 
 <h3>1. 우리 아이 일기</h3>
